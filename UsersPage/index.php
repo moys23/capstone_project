@@ -3,12 +3,14 @@
   include_once '../includes/conn.php';
 
   if(isset($_SESSION['user_usertype']) && isset($_SESSION['user_uid'])){
-      if($_SESSION['user_usertype'] == "C"){
-          header("location: index.php?error=accessdenied");
+      if($_SESSION['user_usertype'] == "N"){
+          header("location: ../index.php?error=accessdenied");
+          exit();
       }
   }
   else{
-      header("location: index.php?error=accessdenied");
+      header("location: ../index.php?error=accessdenied");
+      exit();
   }
 ?>
 
@@ -45,6 +47,7 @@
     </div>
 
   </body>
+  <?php mysqli_close($conn);?>
   <script src="../js/jquery.min.js"></script>
   <script src="../js/bootstrap.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>

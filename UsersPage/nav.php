@@ -31,8 +31,10 @@
                            </div>
                            <div class="modal-body text-dark">
                              <p>Are you sure you want log out?</p>
+                           </div>
+                           <div class="modal-footer">
                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                             <a type="button" class="btn btn-primary" href="includes/logout.php">Confirm</a>
+                             <a type="button" class="btn btn-primary" href="../includes/logout.php">Confirm</a>
                            </div>
                          </div>
                        </div>
