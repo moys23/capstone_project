@@ -1,0 +1,33 @@
+.wholeWrap {
+  margin: auto;
+  width: 1366px;
+  height: 625px;
+  background-image: url(../images/bupc.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#navDesign {
+  background-color: rgba(10, 25, 75, 1);
+}
+
+#headTitle {
+  font-family: "Artifakt Element Hair";
+  font-size: 35px;
+  line-height: 35px;
+  transform: translateY(3px);
+}
+
+#LogInUser {
+  transform: translateY(100px);
+}
+
+#textWrapper {
+  transform: translateY(90px);
+}
+
+#headerText {
+  font-family: "Aharoni";
+  font-size: 80px;
+}
