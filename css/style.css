@@ -1,4 +1,4 @@
-.wholeWrap {
+/* .wholeWrap {
   margin: auto;
   width: 1366px;
   height: 625px;
@@ -6,6 +6,32 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+} */
+
+@media (min-width: 550px) {
+  .wholeWrap{
+    margin: auto;
+    width: 550px;
+    height: 625px;
+    background-image: url(../images/bupc.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-template-rows: repeat(auto-fit, 1, 1fr);
+  }
+}
+
+@media (min-width: 1150px) {
+  .wholeWrap{
+    margin: auto;
+    width: 1150px;
+    height: 625px;
+    background-image: url(../images/bupc.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-template-rows: repeat(auto-fit, 1, 1fr);
+  }
 }
 
 #navDesign {
