@@ -16,12 +16,13 @@
   <link rel="stylesheet" href="font/bootstrap-icons.css">
   <script src="js/cdn.jquery.min.js"></script>
 </head>
-  <body>
+  <body id="firstPage">
 
 
-    <div class="wholeWrap">
+    <div id="mainContainer" class="container-fluid">
       <div id="textWrapper" class="container">
-        <h2 id="headerText" class="display-1 text-center pt-2 shadow">ASSETS INVENTORY SYSTEM</h2>
+        <!-- <h2 id="headerText" class="container-fluid text-center pt-2 col-sm-12">ASSETS INVENTORY SYSTEM</h2> -->
+        <div id="headerText" class="container-fluid text-center pt-2 col-sm-12"><p>ASSETS INVENTORY SYSTEM</p></div>
       </div>
       <div id="LogInUser" class="container-fluid">
         <div class="container pt-2 overflow-hidden">
@@ -40,8 +41,8 @@
           ?>
         </div>
         <div class="row justify-content-center">
-          <div class="col-4">
-            <div class="card rounded-0">
+          <div class="col-sm-4">
+            <div class="card mb-3 rounded-0">
               <div class="card-header bg-primary text-light">
                 <h3 class="text-center">ADMINISTRATOR</h3>
               </div>
