@@ -1,9 +1,5 @@
-.wholeWrap {
-  margin: auto;
-  width: 1366px;
-  height: 625px;
+#firstPage {
   background-image: url(../images/bupc.jpg);
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -16,16 +12,16 @@
   font-family: "Artifakt Element Hair";
   font-size: 35px;
   line-height: 35px;
-  transform: translateY(3px);
+  /* transform: translateY(3px); */
 }
-
+/*
 #LogInUser {
   transform: translateY(100px);
 }
 
 #textWrapper {
   transform: translateY(90px);
-}
+} */
 
 #headerText {
   font-family: "Aharoni";

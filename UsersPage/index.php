@@ -29,22 +29,27 @@
   </head>
   <body>
 
-    <div class="contentWrap">
-      <?php include_once 'nav.php'; ?>
+    <?php include_once 'nav.php'; ?>
 
-
-
-      <div class="leftDrops">
-        <ul class="list-group">
-          <li class="list-group-item">Overview
-
-          </li>
-          <li class="list-group-item">Overview</li>
-          <li class="list-group-item">Overview</li>
-        </ul>
+      <div class="d-flex justify-content-start">
+       <div class="p-2 w-25 flex-shrink-1">
+         <ul class="list-group">
+           <li class="list-group-items">Overview
+             
+           </li>
+           <li class="list-group-items">...</li>
+           <li class="list-group-items">...</li>
+           <li class="list-group-items">...</li>
+         </ul>
+       </div>
+       <div class="p-2 w-100 bg-success">Flex item</div>
       </div>
 
-    </div>
+
+
+
+
+
 
   </body>
   <?php mysqli_close($conn);?>
