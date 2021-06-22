@@ -18,7 +18,7 @@ if (empty($username) || empty($pwd)) {
     $resultCheck = mysqli_affected_rows($conn);
 
     if ($resultCheck < 1) {
-      header("location: ../index.php?error=signin");
+      header("location: ../index.php?error=unknownuser");
       exit();
     } else {
       if ($row = mysqli_fetch_assoc($result)) {

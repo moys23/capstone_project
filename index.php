@@ -15,6 +15,19 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="font/bootstrap-icons.css">
   <script src="js/cdn.jquery.min.js"></script>
+
+  <style media="screen">
+    .Aharoni {
+      font-family: "Aharoni";
+    }
+    .blue {
+      background-color: rgba(0, 0, 255, 0.8);
+    }
+    .black {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  </style>
+
 </head>
   <body id="firstPage">
 
@@ -22,7 +35,7 @@
       <br>
       <br>
       <div id="textWrapper" class="container">
-        <h2 id="headerText" class="display-1 mr-2 ml-2 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center pt-2 shadow">ASSETS INVENTORY SYSTEM</h2>
+        <h1 class="display-1 text-white rounded mr-2 ml-2 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center black Aharoni pt-2">ASSETS INVENTORY SYSTEM</h1>
       </div>
       <div id="LogInUser" class="container-fluid">
         <div class="container pt-2 overflow-hidden">
@@ -42,7 +55,7 @@
         </div>
         <br>
         <div class="row justify-content-center">
-          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <div class="col-xs-4 col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="card rounded-0">
               <div class="card-header bg-primary text-light">
                 <h3 class="text-center">ADMINISTRATOR</h3>
@@ -53,6 +66,12 @@
 
                 if (strpos($headURL, "error=emptyinputs") == true) {
                   echo "<div id='err1' class='alert alert-danger mt-1 rounded' role='alert'><i class='bi bi-exclamation-triangle-fill'></i>&nbsp<strong>Warning!</strong> Empty Inputs.
+                  <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
+                  <span aria-hidden='true'>&times;</span>
+                  </button></div>";
+                }
+                if (strpos($headURL, "error=unknownuser") == true) {
+                  echo "<div id='err1' class='alert alert-danger mt-1 rounded' role='alert'><i class='bi bi-exclamation-triangle-fill'></i>&nbsp<strong>Warning!</strong> User does not exist.
                   <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
                   <span aria-hidden='true'>&times;</span>
                   </button></div>";
