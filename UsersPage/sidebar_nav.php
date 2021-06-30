@@ -38,7 +38,7 @@
     ?>
     <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-            ITEM CATEGORY
+          <span class="fs-6 fw-semibold">ITEM CATEGORY</span>
         </button>
         <div class="collapse show" id="dashboard-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -58,7 +58,7 @@
     </li>
     <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-            Orders
+            <span class="fs-6 fw-semibold">QR Codes</span>
         </button>
         <div class="collapse show" id="orders-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -78,7 +78,12 @@
         </button>
         <div class="collapse" id="account-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-dark rounded">Profile</a></li>
+                <!-- <li><a href="#" class="link-dark rounded">Profile</a></li> -->
+                <li class="nav-item list-unstyled mr-2 mt-1 pt-1 px-2 active">
+                  <div class="admin-user">
+                    <p><?php echo $_SESSION['user_name'];?>&nbsp <i class="bi bi-person-circle"></i></p>
+                  </div>
+                </li>
             </ul>
         </div>
     </li>

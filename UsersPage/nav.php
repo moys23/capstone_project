@@ -10,13 +10,83 @@
 
       <div class="collapse navbar-collapse px-3 justify-content-end " id="navbarADMIN">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item mr-2 mt-1 pt-1 px-2 active">
-              <div class="admin-user">
-                <p><?php echo $_SESSION['user_name'];?>&nbsp<i class="bi bi-person-circle"></i></p>
-              </div>
+            <li class="nav-item mr-2 list-unstyled active">
+
+              <button class="nav-link bg-transparent text-light border-0" data-toggle="modal" data-target="#addUsers">Add User <i class="bi-plus-circle"></i></button>
+
+              <div class="modal fade" id="addUsers" tabindex="-1" role="dialog" aria-labelledby="addUsersLabel" aria-hidden="true">
+                 <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                     <div class="modal-header">
+                       <h5 class="modal-title text-dark" id="addUsersLabel">Confirm Sign Out</h5>
+                       <button type="button" class="close btn btn-transparent" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                       </button>
+                     </div>
+                     <div class="modal-body text-dark">
+                       <form enctype="multipart/form-data" action="#" method="POST">
+                         <div class="input-group justify-content-center">
+                           <div class="row">
+                             <div class="col-5">
+                               <div class="form-group mx-1">
+                                 <label for="item">First Name</label>
+                                 <input type="text" class="form-control border border-dark" name="itemname">
+                               </div>
+                             </div>
+                             <div class="col-2">
+                               <div class="form-group mx-1">
+                                 <label for="item">M.I.</label>
+                                 <input type="text" class="form-control border border-dark" name="itemname">
+                               </div>
+                             </div>
+                             <div class="col-5">
+                               <div class="form-group">
+                                 <label for="price">Last Name</label>
+                                 <input type="text" class="form-control border border-dark" name="itemprice">
+                               </div>
+                             </div>
+                           </div>
+
+
+
+                           <div class="form-group">
+                               <label for="SelectCategory" class="form-label">Category</label>
+                               <select name="itemcategory" id="" class="form-select">
+                                   <option value='1'>Helmet</option>
+                                   <option value='2'>Motorcycle Gear</option>
+                                   <option value='3'>Parts</option>
+                                   <option value='4'>Accesories</option>
+                                   <option value='5'>Tires</option>
+                               </select>
+                           </div>
+                           <div class="form-group">
+                               <label for="SelectCategory" class="form-label">Category</label>
+                               <select name="itemstatus" id="" class="form-select">
+                                   <option value='1'>Available</option>
+                                   <option value='2'>Out of Stock</option>
+                                   <option value='3'>Sold Out</option>
+                               </select>
+                           </div>
+                         </div>
+
+                       </form>
+                     </div>
+                     <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                       <a type="submit" class="btn btn-primary" name="createItem">Submit</a>
+                      </div>
+                     </div>
+                   </div>
+                 </div>
+
             </li>
-            <li class="nav-item mr-2 px-2 active">
-                <button class="nav-link bg-transparent border-0" data-toggle="modal" data-target="#myModal">Logout <i class="bi-power"></i></button>
+            <!-- <li class="nav-item list-unstyled mr-2 mt-1 pt-1 px-2 active">
+              <div class="admin-user">
+                <p><?php //echo $_SESSION['user_name'];?>&nbsp<i class="bi bi-person-circle"></i></p>
+              </div>
+            </li> -->
+            <li class="nav-item list-unstyled mr-2 px-1 active">
+                <button class="nav-link bg-transparent text-light border-0" data-toggle="modal" data-target="#myModal">Logout <i class="bi-power"></i></button>
 
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                    <div class="modal-dialog" role="document">
