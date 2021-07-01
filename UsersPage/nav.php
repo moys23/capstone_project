@@ -25,8 +25,8 @@
                      </div>
                      <div class="modal-body text-dark">
                        <form enctype="multipart/form-data" action="#" method="POST">
-                         <div class="input-group justify-content-center">
-                           <div class="row">
+                         <div class="input-group">
+                           <div class="row justify-content-center">
                              <div class="col-5">
                                <div class="form-group mx-1">
                                  <label for="item">First Name</label>
@@ -47,28 +47,24 @@
                              </div>
                            </div>
 
-
-
-                           <div class="form-group">
-                               <label for="SelectCategory" class="form-label">Category</label>
-                               <select name="itemcategory" id="" class="form-select">
-                                   <option value='1'>Helmet</option>
-                                   <option value='2'>Motorcycle Gear</option>
-                                   <option value='3'>Parts</option>
-                                   <option value='4'>Accesories</option>
-                                   <option value='5'>Tires</option>
-                               </select>
+                           <div class="form-group mx-1">
+                             <label for="item">New Password</label>
+                             <input class="form-control border border-dark" name="Psdword" type="password">
                            </div>
-                           <div class="form-group">
-                               <label for="SelectCategory" class="form-label">Category</label>
-                               <select name="itemstatus" id="" class="form-select">
-                                   <option value='1'>Available</option>
-                                   <option value='2'>Out of Stock</option>
-                                   <option value='3'>Sold Out</option>
+
+                           <div class="form-group mx-1">
+                             <label for="item">Confirm Password</label>
+                             <input class="form-control border border-dark" name="Psdword " type="password">
+                           </div>
+
+                           <div class="form-group mt-1 mx-1">
+                               <label for="SelectCategory" class="form-label">Restriction</label>
+                               <select name="itemcategory" id="" class="form-select">
+                                   <option value='1'>Admin</option>
+                                   <option value='2'>Stuff Admin</option>
                                </select>
                            </div>
                          </div>
-
                        </form>
                      </div>
                      <div class="modal-footer">

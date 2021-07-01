@@ -1,11 +1,11 @@
 <ul class="list-unstyled ps-0">
     <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-            <span class="fs-6 fw-semibold">Home</span>
+            <span class="fs-6 fw-semibold">Overview</span>
         </button>
         <div class="collapse show" id="home-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-dark rounded">Overview</a></li>
+                <li><a href="index.php?Overview" class="link-dark rounded">Overview</a></li>
                 <li><a href="#" class="link-dark rounded">CS Department</a></li>
                 <li><a href="#" class="link-dark rounded">EDUC Department</a></li>
             </ul>
@@ -38,7 +38,7 @@
     ?>
     <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          <span class="fs-6 fw-semibold">ITEM CATEGORY</span>
+          <span class="fs-6 fw-semibold">CATEGORY</span>
         </button>
         <div class="collapse show" id="dashboard-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -62,12 +62,7 @@
         </button>
         <div class="collapse show" id="orders-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="orders.php" class="link-dark rounded">All</a></li>
-                <!--
-                <li><a href="orders.php" class="link-dark rounded">Processed</a></li>
-                <li><a href="orders.php" class="link-dark rounded">Shipped</a></li>
-                <li><a href="orders.php" class="link-dark rounded">Returned</a></li>
--->
+              <li><a href="#" class="link-dark rounded">All</a></li>
             </ul>
         </div>
     </li>
