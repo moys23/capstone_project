@@ -67,19 +67,36 @@
         </div>
     </li>
     <li class="border-top my-3"></li>
-    <li class="mb-1">
+    <!-- <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-            Account
+            <span class="fs-6 fw-semibold">Account</span>
         </button>
-        <div class="collapse" id="account-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+        <div class="collapse show" id="account-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"> -->
                 <!-- <li><a href="#" class="link-dark rounded">Profile</a></li> -->
-                <li class="nav-item list-unstyled mr-2 mt-1 pt-1 px-2 active">
-                  <div class="admin-user">
-                    <p><?php echo $_SESSION['user_name'];?>&nbsp <i class="bi bi-person-circle"></i></p>
-                  </div>
+                <!-- <li class="nav-item list-unstyled mr-2 mt-1 pt-1 px-2 active">
+                  <a href="#" class="link-dark rounded">
+                    <p><?php //echo $_SESSION['user_name'];?>&nbsp <i class="bi bi-person-circle"></i></p>
+                  </a>
                 </li>
             </ul>
         </div>
-    </li>
+    </li> -->
+    <div class="dropdown">
+        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+          <!-- Put image after database is fixed -->
+            <!-- <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> -->
+            <strong class="mx-3">
+              <?php echo $_SESSION['user_name'];?>
+            </strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="../includes/logout.php">Sign out</a></li>
+        </ul>
+    </div>
 </ul>
