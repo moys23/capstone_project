@@ -1,6 +1,6 @@
   <nav id="colorDesign" class="navbar navbar-expand-md navbar-dark text-light">
       <a href="index.php" class="text-decoration-none">
-        <h2 id="headTitle" class="display-7 pt-1 mx-3 text-light">BUPC Admin</h2>
+        <h2 id="headTitle" class="display-7 pt-1 mx-3 text-light">ADMINISTRATOR</h2>
       </a>
 
 
