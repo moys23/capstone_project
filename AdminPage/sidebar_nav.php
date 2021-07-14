@@ -1,3 +1,5 @@
+
+
 <ul class="list-unstyled ps-0">
   <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
@@ -6,7 +8,7 @@
         <div class="collapse show" id="home-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                 <li><a href="index.php?Overview" class="link-dark rounded">Overview</a></li>
-                <li><a href="#" class="link-dark rounded">CS Department</a></li>
+                <li><a href="CSDepartment.php?Overview" class="link-dark rounded">CS Department</a></li>
                 <li><a href="#" class="link-dark rounded">EDUC Department</a></li>
             </ul>
         </div>
@@ -33,6 +35,11 @@
                   }
 
                  ?>
+
+                 <?php
+                  echo alink();
+
+                  ?>
             </ul>
         </div>
     </li>
