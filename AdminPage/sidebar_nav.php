@@ -35,11 +35,6 @@
                   }
 
                  ?>
-
-                 <?php
-                  echo alink();
-
-                  ?>
             </ul>
         </div>
     </li>
