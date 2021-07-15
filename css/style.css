@@ -1,3 +1,92 @@
+.sidebar{
+  position: fixed;
+  left:-250px;
+  width: 250px;
+  height: 100%;
+  background: #042331;
+  transition: all .5s ease;
+
+}
+.sidebar header{
+  font-size: 22px;
+  color: white;
+  padding-left: 25px;
+  text-align: left;
+  line-height: 70px;
+  background: #063146;
+  user-select: none;
+}
+
+.sidebar ul {
+  padding-left: 0;
+}
+
+.sidebar li {
+  padding-left: 10px;
+}
+
+.sidebar ul a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height:50px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  text-decoration: none;
+  box-sizing: border-box;
+  /* border-top: 1px solid rgba(255,225,255,.1); */
+  transition: .4s;
+}
+
+ul li:hover a{
+  padding-left: 50px;
+}
+
+.sidebar li {
+  list-style: none;
+}
+
+#check{
+  display: none;
+}
+
+label #btn, label #cancel{
+  position: relative;
+  cursor: pointer;
+  background: #042331;
+  border-radius: 3px;
+}
+label #btn{
+  background-size: cover;
+  left: 10px;
+  font-size: 30px;
+  color: white;
+  margin-top: 0;
+  padding: 0px 8px 8px 8px;
+  transition: all .5s ease;
+}
+label #cancel{
+  z-index:1111;
+  left:-95px;
+  top:44.5px;
+  font-size: 30px;
+  color: #0a5275;
+  padding: 2px 7px;
+  transition: all .5s ease;
+}
+#check:checked ~ .sidebar{
+  left: 0;
+}
+#check:checked ~ label #btn{
+  left: 250px;
+  opacity: 0;
+  pointer-events: none;
+}
+#check:checked ~ label #cancel{
+  left:195px;
+}
+
 #firstPage {
   background-attachment: fixed;
   background-image: url(../images/bupc.jpg);
@@ -30,9 +119,7 @@
 
 #headTitle {
   font-family: "Artifakt Element Hair";
-  font-size: 35px;
-  line-height: 35px;
-  transform: translateY(3px);
+  
 }
 
 #LogInUser {

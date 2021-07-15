@@ -33,15 +33,26 @@
       <?php include_once 'nav.php'; ?>
 
 
+      <input type="checkbox" id="check">
+      <label for="check">
+        <i class="bi bi-justify" id="btn"></i>
+        <i class="bi bi-x" id="cancel"></i>
+      </label>
+      <div class="sidebar">
+        <header>
+          Menu
+        </header>
+        <ul>
+          <li> <a href="#">Overview</li>
+          <li> <a href="#">Overview</li>
+          <li> <a href="#">Overview</li>
 
-      <div class="leftDrops">
-        <ul class="list-group">
-          <li class="list-group-item">Overview
 
-          </li>
-          <li class="list-group-item">Overview</li>
-          <li class="list-group-item">Overview</li>
         </ul>
+      </div>
+
+      <div class="container-fluid">
+
       </div>
 
     </div>

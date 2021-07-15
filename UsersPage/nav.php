@@ -1,10 +1,11 @@
     <div class="navAdmin">
       <nav id="navDesign" class="navbar navbar-expand-lg navbar-dark text-light shadow ">
-          <div class="store-brand">
-            <a href="index2.php" class="text-decoration-none">
-              <h3 id="headTitle" class="mx-3 text-light">ADMINISTRATOR</h3>
+
+            <a href="index.php" class="text-decoration-none">
+              <div class="container">
+                <h3 id="headTitle" class="mt-1 text-light">ADMINISTRATOR</h3>
+              </div>
             </a>
-          </div>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarADMIN" aria-controls="navbarADMIN" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
