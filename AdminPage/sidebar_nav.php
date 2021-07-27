@@ -61,27 +61,4 @@
             </ul>
         </div>
     </li>
-
-    <li class="border-top my-3"></li>
-
-    <li class="mb-1">
-    <div class="dropdown">
-      <a href="#" class="d-flex align-items-center overflow-hidden link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-        <!-- Put image after database is fixed -->
-          <!-- <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> -->
-          <strong class="mx-3">
-            <?php echo $_SESSION['user_name'];?>
-          </strong>
-      </a>
-
-        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li>
-                <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="../includes/logout.php">Sign out</a></li>
-        </ul>
-    </div>
-  </li>
 </ul>

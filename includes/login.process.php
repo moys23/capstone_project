@@ -37,7 +37,7 @@ if (empty($username) || empty($pwd)) {
           $_SESSION['user_usertype'] = $row['u_usertype'];
 
           if ($_SESSION['user_usertype'] == 'A') {
-            header("location: ../AdminPage/index.php?login=success");
+            header("location: ../AdminPage/index.php?overview");
             exit();
           }
           elseif ($_SESSION['user_usertype'] == 'B') {

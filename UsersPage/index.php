@@ -35,7 +35,7 @@
 
     <?php   include_once 'nav.php';?>
 
-    <main>
+    <!-- <main>
 
         <div class="container-fluid">
             <div class="row">
@@ -96,7 +96,7 @@
             </div>
         </div>
 
-    </main>
+    </main> -->
 
 
 
