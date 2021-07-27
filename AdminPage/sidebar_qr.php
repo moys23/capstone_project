@@ -1,4 +1,4 @@
-<button class="btn btn-success m-1 shadow border rounded border-1 position-fixed" data-toggle="modal" data-target="#addUsers" style="transform: translateY(40px);">
+<button class="btn blue m-1 shadow border rounded text-light border-1 position-fixed" data-toggle="modal" data-target="#addUsers"  style="transform: translateY(80px); padding: 8px 12px 8px 13px;">
   <i class="fas fa-qrcode" ></i>
 </button>
 

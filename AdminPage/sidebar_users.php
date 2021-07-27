@@ -1,5 +1,5 @@
 
-  <button class="btn btn-success m-1 shadow border rounded border-1 position-fixed" data-toggle="modal" data-target="#addUsers">
+  <button class="btn blue m-1 shadow border rounded text-light border-1 position-fixed" data-toggle="modal" data-target="#addUsers"style="transform: translateY(40px);">
     <i class="bi bi-person-plus-fill" ></i>
   </button>
 
