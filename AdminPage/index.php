@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../font/bootstrap-icons.css">
     <link rel="stylesheet" href="../fontawesome/css/all.css">
     <script src="../js/cdn.jquery.min.js"></script>
+    <script src="../js/custom.js"></script>
 
     <link rel="canonical" href="sidebar.php">
 

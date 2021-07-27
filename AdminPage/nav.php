@@ -25,16 +25,19 @@
 
               <div class="container-fluid">
 
-                <button class="btn btn-transparent" type="button" data-toggle="collapse" data-target="#overviewBTN" aria-expanded="false" aria-controls="overviewBTN">
-                  Overview
+                <button class="btn btn-transparent border border-0 overflow-hidden shadow-none" type="button" data-toggle="collapse" data-target="#overviewBTN" aria-expanded="false" aria-controls="overviewBTN">
+                  Overview <i class="bi-chevron-down"></i>
                 </button>
 
                 <div class="collapse" id="overviewBTN">
                   <ul>
-                    <li><a href="#">Overview</a> </li>
-                    <li><a href="#">Overview</a> </li>
-                    <li><a href="#">Overview</a> </li>
-                    <li><a href="#">Overview</a> </li>
+                    <div class="container-fluid bg-info">
+
+                      <li><a id="links" class="text-dark" href="#">Overview</a> </li>
+                      <li><a id="links" class="text-dark" href="#">CSD Department</a> </li>
+                      <li><a id="links" class="text-dark" href="#">EDUC Department</a> </li>
+
+                    </div>
                   </ul>
                 </div>
 
@@ -42,16 +45,20 @@
 
               <div class="container-fluid">
 
-                <button class="btn btn-transparent" type="button" data-toggle="collapse" data-target="#categoryBTN" aria-expanded="false" aria-controls="categoryBTN">
-                  Overview
+                <button class="btn btn-transparent border border-0 overflow-hidden shadow-none" type="button" data-toggle="collapse" data-target="#categoryBTN" aria-expanded="false" aria-controls="categoryBTN">
+                  Category <i class="bi-chevron-down"></i>
                 </button>
 
                 <div class="collapse" id="categoryBTN">
                   <ul>
-                    <li><a href="#">Overview</a> </li>
-                    <li><a href="#">Overview</a> </li>
-                    <li><a href="#">Overview</a> </li>
-                    <li><a href="#">Overview</a> </li>
+                    <li><a id="links" class="text-dark" href="#">Armed-chair</a> </li>
+                    <li><a id="links" class="text-dark" href="#">Table</a> </li>
+                    <li><a id="links" class="text-dark" href="#">Electric Fan</a> </li>
+                    <li><a id="links" class="text-dark" href="#">Curtain</a> </li>
+                    <li><a id="links" class="text-dark" href="#">Monoblock Chair</a> </li>
+                    <li><a id="links" class="text-dark" href="#">Graph Board</a> </li>
+                    <li><a id="links" class="text-dark" href="#">Curtain</a> </li>
+                    <li><a id="links" class="text-dark" href="#">Curtain</a> </li>
                   </ul>
                 </div>
 
@@ -59,16 +66,33 @@
 
               <div class="container-fluid">
 
-                <button class="btn btn-transparent" type="button" data-toggle="collapse" data-target="#roomBTN" aria-expanded="false" aria-controls="roomBTN">
-                  Overview
+                <button class="btn btn-transparent border border-0 overflow-hidden shadow-none" type="button" data-toggle="collapse" data-target="#roomBTN" aria-expanded="false" aria-controls="roomBTN">
+                  Rooms <i class="bi-chevron-down" style="margin-left: 14px;"></i>
                 </button>
 
                 <div class="collapse" id="roomBTN">
                   <ul>
-                    <li><a href="#">Overview</a> </li>
-                    <li><a href="#">Overview</a> </li>
-                    <li><a href="#">Overview</a> </li>
-                    <li><a href="#">Overview</a> </li>
+                    <li><a id="links" class="text-dark"  href="#">SB-1</a> </li>
+                    <li><a id="links" class="text-dark"  href="#">SB-2</a> </li>
+                    <li><a id="links" class="text-dark"  href="#">ECB-17</a> </li>
+                    <li><a id="links" class="text-dark"  href="#">ECB-16</a> </li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+              <div class="container-fluid">
+
+                <button class="btn btn-transparent border border-0 overflow-hidden shadow-none" type="button" data-toggle="collapse" data-target="#qrBTN" aria-expanded="false" aria-controls="qrBTN">
+                  QR Code  <i class="bi-chevron-down"></i>
+                </button>
+
+                <div class="collapse" id="qrBTN">
+                  <ul>
+                    <li><a id="links" class="text-dark"  href="#">All</a> </li>
+                    <li><a id="links" class="text-dark"  href="#">CSD Department</a> </li>
+                    <li><a id="links" class="text-dark"  href="#">EDUC Department</a> </li>
                   </ul>
                 </div>
 
@@ -77,14 +101,15 @@
             </div>
 
 
+
               <li class="border-top my-3"></li>
 
               <li class="nav-item mr-2 mb-1 list-unstyled active">
                 <div class="align-items-center rounded dropdown">
-                  <a href="#" class=" overflow-hidden link-dark text-decoration-none dropdown-toggle" id="dpAccount" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a href="#" class=" overflow-hidden link-light text-decoration-none dropdown-toggle" id="dpAccount" data-bs-toggle="dropdown" aria-expanded="false">
                     <!-- Put image after database is fixed -->
                       <!-- <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> -->
-                      <strong class="">
+                      <strong class="text-light">
                         <?php echo $_SESSION['user_name'];?>
                       </strong>
                   </a>
