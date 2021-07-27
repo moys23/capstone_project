@@ -21,7 +21,7 @@
 
 
 
-            <div class="container mt-2 bg-light rounded">
+            <div class="container mt-2 bg-light rounded sidebar-sticky">
 
               <div class="container-fluid">
 
@@ -31,11 +31,11 @@
 
                 <div class="collapse" id="overviewBTN">
                   <ul>
-                    <div class="container-fluid bg-info">
+                    <div class="container-fluid">
 
-                      <li><a id="links" class="text-dark" href="#">Overview</a> </li>
-                      <li><a id="links" class="text-dark" href="#">CSD Department</a> </li>
-                      <li><a id="links" class="text-dark" href="#">EDUC Department</a> </li>
+                      <li><a id="links" class="text-dark border-bottom border-dark" href="#">Overview</a> </li>
+                      <li><a id="links" class="text-dark border-bottom border-dark" href="#">CSD Department</a> </li>
+                      <li><a id="links" class="text-dark border-bottom border-dark" href="#">EDUC Department</a> </li>
 
                     </div>
                   </ul>
@@ -51,14 +51,21 @@
 
                 <div class="collapse" id="categoryBTN">
                   <ul>
-                    <li><a id="links" class="text-dark" href="#">Armed-chair</a> </li>
-                    <li><a id="links" class="text-dark" href="#">Table</a> </li>
-                    <li><a id="links" class="text-dark" href="#">Electric Fan</a> </li>
-                    <li><a id="links" class="text-dark" href="#">Curtain</a> </li>
-                    <li><a id="links" class="text-dark" href="#">Monoblock Chair</a> </li>
-                    <li><a id="links" class="text-dark" href="#">Graph Board</a> </li>
-                    <li><a id="links" class="text-dark" href="#">Curtain</a> </li>
-                    <li><a id="links" class="text-dark" href="#">Curtain</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Armed-chair</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Table</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Electric Fan</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Curtain</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Monoblock Chair</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Curtain</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Graph Board</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Monitor</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Printer</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">AVR</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">System Unit</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Keyboard</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Mouse</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Switch</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Projector</a> </li>
                   </ul>
                 </div>
 

@@ -73,7 +73,7 @@
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="container py-1" style="padding-left: 55px;">
-            <h4 class="bg-info p-2 mt-2 text-center ">Supply Office Inventory System</h4>
+            <h4 class="bg-info p-2 mt-2 text-center ">Assets Inventory System</h4>
               <span class="col-sm-6 badge badge-primary text-dark border border-dark" style="margin-left: 15px;">
                 <h6>
                   CESD Assets
