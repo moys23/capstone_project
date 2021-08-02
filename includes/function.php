@@ -28,4 +28,9 @@ function checkImage($img_file, $targetdir, $targetimagename){
 }
 
 
+
+
+
+
+
  ?>

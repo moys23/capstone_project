@@ -58,7 +58,9 @@
       <br>
       <br> -->
 
-      <?php include_once '../navPanels/idebar_search.php'; ?>
+      <?php include_once '../navPanels/sidebar_users.php'; ?>
+      <?php include_once '../navPanels/sidebar_qr.php'; ?>
+      <?php include_once '../navPanels/sidebar_search.php'; ?>
 
 
 
@@ -66,18 +68,10 @@
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="container py-1" style="padding-left: 55px;">
-            <h4 class="bg-info p-2 mt-2 text-center ">Assets Inventory System</h4>
-              <span class="col-sm-6 badge badge-primary text-dark border border-dark" style="margin-left: 15px;">
+            <h4 class="bg-info p-2 mt-2 text-center border border-dark">Computer Science Department</h4>
+              <span class="col-10 badge badge-primary text-dark border border-dark" style="margin-left: 20px;">
                 <h6>
-                  CESD Assets
-                </h6>
-                <h1>
-                  1
-                </h1>
-              </span>
-              <span class="col-sm-6 mx-2 badge badge-primary text-dark border border-dark">
-                <h6>
-                  EDUC Assets
+                  Total Assets
                 </h6>
                 <h1>
                   1

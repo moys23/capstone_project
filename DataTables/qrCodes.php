@@ -69,84 +69,21 @@
         <div class="row justify-content-center">
           <div class="container py-1" style="padding-left: 55px;">
             <h4 class="bg-info p-2 mt-2 text-center ">BUPC Assets Inventory</h4>
-              <span class="col-sm-6 badge badge-primary text-dark border border-dark" style="margin-left: 15px;">
-                <h6>
-                  CESD Assets
-                </h6>
-                <h1>
-                  1
-                </h1>
-              </span>
-              <span class="col-sm-6 mx-2 badge badge-primary text-dark border border-dark">
-                <h6>
-                  EDUC Assets
-                </h6>
-                <h1>
-                  1
-                </h1>
-              </span>
+            <?php
+             if(isset($_POST['btnsubmit']))
+             {
+             $data = trim($_POST['txtqr']);
+             $data1 = trim($_POST['itemQTY']);
+             $data2 = "http://google.com";
+
+             echo "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=$data$data1$data2' height=250 width=250/>";
+            
+             }
+            ?>
           </div>
         </div>
       </div>
 
-      <div class="container-fluid mt-3"  style="padding-left: 55px; ">
-        <div class="container border border-dark table-sticky">
-        <table class="table border border-1">
-          <thead class="thead-dark">
-            <tr>
-              <th>#</th>
-              <th>thead-dark</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      </div>
 
 
 
@@ -157,5 +94,6 @@
   <script src="../js/jquery.min.js"></script>
   <script src="../js/bootstrap.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="../css/sidebars.js"></script> -->
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </html>

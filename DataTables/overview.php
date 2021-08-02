@@ -14,11 +14,16 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
+    <!-- <link rel="stylesheet" href="../css/sidebars.css"> -->
     <link rel="stylesheet" href="../font/bootstrap-icons.css">
     <link rel="stylesheet" href="../fontawesome/css/all.css">
     <script src="../js/cdn.jquery.min.js"></script>
     <script src="../js/custom.js"></script>
 
+    <link rel="canonical" href="sidebar.php">
+
+    <!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <style>
       .blue {
           background-color: rgba(10, 25, 75, 1);
@@ -58,7 +63,9 @@
       <br>
       <br> -->
 
-      <?php include_once '../navPanels/idebar_search.php'; ?>
+      <?php include_once '../navPanels/sidebar_users.php'; ?>
+      <?php include_once '../navPanels/sidebar_qr.php'; ?>
+      <?php include_once '../navPanels/sidebar_search.php'; ?>
 
 
 
@@ -66,7 +73,7 @@
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="container py-1" style="padding-left: 55px;">
-            <h4 class="bg-info p-2 mt-2 text-center ">Assets Inventory System</h4>
+            <h4 class="bg-info p-2 mt-2 text-center ">BUPC Assets Inventory</h4>
               <span class="col-sm-6 badge badge-primary text-dark border border-dark" style="margin-left: 15px;">
                 <h6>
                   CESD Assets
@@ -152,6 +159,5 @@
   <script src="../js/jquery.min.js"></script>
   <script src="../js/bootstrap.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
-  <!-- <script src="../css/sidebars.js"></script> -->
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </html>

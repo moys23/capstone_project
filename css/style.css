@@ -1,11 +1,20 @@
+
+.table-sticky {
+  /* Scrollable contents */
+    top: 0;
+    height: calc(450px - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .sidebar-sticky {
-    /* position: relative; */
+  /* Scrollable contents */
     top: 0;
     height: calc(210px - 48px);
     padding-top: .5rem;
     overflow-x: hidden;
     overflow-y: auto;
-    /* Scrollable contents if viewport is shorter than content. */
 }
 
 #links {

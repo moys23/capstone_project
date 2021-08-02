@@ -33,9 +33,9 @@
                   <ul>
                     <div class="container-fluid">
 
-                      <li><a id="links" class="text-dark border-bottom border-dark" href="#">Overview</a> </li>
-                      <li><a id="links" class="text-dark border-bottom border-dark" href="#">CSD Department</a> </li>
-                      <li><a id="links" class="text-dark border-bottom border-dark" href="#">EDUC Department</a> </li>
+                      <li><a id="links" class="text-dark border-bottom border-dark" href="../DataTables/overview.php?view">Overview</a> </li>
+                      <li><a id="links" class="text-dark border-bottom border-dark" href="../DataTables/CSDepartment.php?view">CSD Department</a> </li>
+                      <li><a id="links" class="text-dark border-bottom border-dark" href="../DataTables/EDUCdept.php?view">EDUC Department</a> </li>
 
                     </div>
                   </ul>
@@ -79,10 +79,10 @@
 
                 <div class="collapse" id="roomBTN">
                   <ul>
-                    <li><a id="links" class="text-dark"  href="#">SB-1</a> </li>
-                    <li><a id="links" class="text-dark"  href="#">SB-2</a> </li>
-                    <li><a id="links" class="text-dark"  href="#">ECB-17</a> </li>
-                    <li><a id="links" class="text-dark"  href="#">ECB-16</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark"  href="#">SB-1</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark"  href="#">SB-2</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark"  href="#">ECB-17</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark"  href="#">ECB-16</a> </li>
                   </ul>
                 </div>
 
@@ -97,9 +97,9 @@
 
                 <div class="collapse" id="qrBTN">
                   <ul>
-                    <li><a id="links" class="text-dark"  href="#">All</a> </li>
-                    <li><a id="links" class="text-dark"  href="#">CSD Department</a> </li>
-                    <li><a id="links" class="text-dark"  href="#">EDUC Department</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark"  href="../DataTables/qrCodes.php">All</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark"  href="#">CSD Department</a> </li>
+                    <li><a id="links" class="text-dark border-bottom border-dark"  href="#">EDUC Department</a> </li>
                   </ul>
                 </div>
 
