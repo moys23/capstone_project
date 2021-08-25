@@ -81,7 +81,8 @@
         </div>
       </div>
 
-      <div class="container-fluid mt-3"  style="padding-left: 55px;">
+      <div class="container-fluid mt-3"  style="padding-left: 55px; ">
+        <div class="container border border-dark table-sticky">
         <table class="table border border-1">
           <thead class="thead-dark">
             <tr>
@@ -136,6 +137,7 @@
             </tr>
           </tbody>
         </table>
+      </div>
       </div>
 
 

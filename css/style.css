@@ -2,7 +2,7 @@
 .table-sticky {
   /* Scrollable contents */
     top: 0;
-    height: calc(450px - 48px);
+    height: calc(470px - 48px);
     padding-top: .5rem;
     overflow-x: hidden;
     overflow-y: auto;

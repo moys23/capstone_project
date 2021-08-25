@@ -68,8 +68,8 @@
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="container py-1" style="padding-left: 55px;">
-            <h4 class="bg-info p-2 mt-2 text-center ">BUPC Assets Inventory</h4>
-              <span class="col-sm-6 badge badge-primary text-dark border border-dark" style="margin-left: 15px;">
+            <h4 class="bg-info p-2 mt-2 text-center border border-dark">BUPC Assets Inventory</h4>
+              <span class="col-sm-6 badge badge-primary text-dark border border-dark" style="margin-left: 23px;">
                 <h6>
                   CESD Assets
                 </h6>

@@ -70,15 +70,30 @@
           <div class="container py-1" style="padding-left: 55px;">
             <h4 class="bg-info p-2 mt-2 text-center ">BUPC Assets Inventory</h4>
             <?php
-             if(isset($_POST['btnsubmit']))
-             {
-             $data = trim($_POST['txtqr']);
-             $data1 = trim($_POST['itemQTY']);
-             $data2 = "http://google.com";
+             // if(isset($_POST['btnsubmit']))
+             // {
+             // $data = trim($_POST['txtqr']);
+             // $data1 = trim($_POST['itemQTY']);
+             // $data2 = 'https://192.168.1.118/capstone_project/index.php';
+             //
+             // echo "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=$data2' height=250 width=250/>";
+             //
+             // }
 
-             echo "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=$data$data1$data2' height=250 width=250/>";
-            
-             }
+
+                        if(isset($_POST['btnsubmit'])){
+
+                          $ASSname = mysqli_real_escape_string($conn, $_POST['txtqr']);
+                          $incharge = mysqli_real_escape_string($conn, $_POST['incharge']);
+                          $location = mysqli_real_escape_string($conn, $_POST['itmLoc']);
+                          $efcdate = mysqli_real_escape_string($conn, $_POST['EFdate']);
+                          $category = mysqli_real_escape_string($conn, $_POST['ItemCategory']);
+                          $roomCat = mysqli_real_escape_string($conn, $_POST['RoomCategory']);
+
+                echo "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=$ASSname$incharge$location$efcdate$category$roomCat' height=250 width=250/>";
+
+              }
+
             ?>
           </div>
         </div>

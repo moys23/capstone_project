@@ -6,7 +6,7 @@
    <div class="modal-dialog" role="document">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title text-dark" id="createQRLabel">Create New User</h5>
+         <h5 class="modal-title text-dark" id="createQRLabel">Add New Assets</h5>
          <button type="button" class="close btn btn-transparent" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
          </button>
@@ -63,7 +63,7 @@
 
           </div> -->
 
-         <form enctype="multipart/form-data" action="../DataTables/qrCodes.php" method="POST">
+         <form enctype="multipart/form-data" action="../includes/qr_gen.php" method="POST">
            <div class="input-group">
 
              <div class="form-group mx-3 mb-2">
@@ -71,25 +71,58 @@
                <input type="text" class="form-control border border-dark" name="txtqr" required>
              </div>
 
-             <div class="form-group mx-3 mb-4">
-               <label for="item">Quantity</label>
-               <input type="number" class="form-control border border-dark" name="itemQTY" required>
+             <div class="form-group mx-3 mb-1">
+               <label for="item">Person In-charge</label>
+               <input type="text" class="form-control border border-dark" name="incharge" required>
+             </div>
+
+             <div class="form-group mx-3 mb-1">
+               <label for="item">Effectivity Date</label>
+               <input type="date" class="form-control border border-dark" name="EFdate" required>
+             </div>
+
+             <div class="form-group mx-3 mb-1">
+               <label for="item">Location</label>
+               <input type="text" class="form-control border border-dark" name="itmLoc" required>
+             </div>
+
+             <div class="form-group mx-3 mb-1">
+               <label for="SelectCategory" class="form-label">Category</label>
+               <select name="ItemCategory" id="" class="form-select mb-2">
+                 <option value='1'>Armed-chair</option>
+                 <option value='2'>Table</option>
+                 <option value="3">Electric Fan</option>
+                 <option value="4">Curtain</option>
+                 <option value="5">Monoblock Chair</option>
+                 <option value="6">Graph Board</option>
+                 <option value="7">Monitor</option>
+                 <option value="8">Printer</option>
+                 <option value="9">AVR</option>
+                 <option value="10">System Unit</option>
+                 <option value="11">Keyboard</option>
+                 <option value="12">Mouse</option>
+                 <option value="13">Switch</option>
+                 <option value="14">Projector</option>
+               </select>
+             </div>
+
+             <div class="form-group mx-3 mb-3">
+               <label for="SelectCategory" class="form-label">Room Category</label>
+               <select name="RoomCategory" id="" class="form-select mb-2">
+                 <option value='1'>Laboratory Room</option>
+                 <option value='2'>Lecture Room</option>
+               </select>
              </div>
 
            </div>
 
-           <!-- <div class="form-group mt-1 mx-1">
-             <label for="SelectCategory" class="form-label">Restriction</label>
-             <select name="RoomCategory" id="" class="form-select mb-2">
-               <option value='LR'>Laboratory Room</option>
-               <option value='OR'>Classroom</option>
-             </select>
-           </div> -->
 
            <div class="modal-footer">
              <button type="submit" class="btn btn-primary mb-0" id="subBtn" name="btnsubmit">Submit</button>
            </div>
          </form>
+
+
 
 
 

@@ -1,5 +1,5 @@
   <nav id="colorDesign" class="navbar navbar-expand-md navbar-dark text-light">
-    <a href="index.php" class="text-decoration-none">
+    <a href="../AdminPage/index.php" class="text-decoration-none">
       <h2 id="headTitle" class="display-7 pt-1 mx-3 text-light">ADMINISTRATOR</h2>
     </a>
 
@@ -14,7 +14,7 @@
               <form method="GET">
                 <div class="input-group">
                   <input id="searchbar" class="form-control p-2 mx-2 rounded" type="text" name="srchkey" placeholder="Search">
-                  <button class="btn btn-outline-success rounded" type="submit" name="search">Search <i class="bi bi-search"></i></button>
+                  <button class="btn btn-success rounded" type="submit" name="search">Search <i class="bi bi-search"></i></button>
                 </div>
               </form>
             </li>
@@ -56,7 +56,6 @@
                     <li><a id="links" class="text-dark border-bottom border-dark" href="#">Electric Fan</a> </li>
                     <li><a id="links" class="text-dark border-bottom border-dark" href="#">Curtain</a> </li>
                     <li><a id="links" class="text-dark border-bottom border-dark" href="#">Monoblock Chair</a> </li>
-                    <li><a id="links" class="text-dark border-bottom border-dark" href="#">Curtain</a> </li>
                     <li><a id="links" class="text-dark border-bottom border-dark" href="#">Graph Board</a> </li>
                     <li><a id="links" class="text-dark border-bottom border-dark" href="#">Monitor</a> </li>
                     <li><a id="links" class="text-dark border-bottom border-dark" href="#">Printer</a> </li>

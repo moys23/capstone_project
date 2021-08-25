@@ -94,63 +94,64 @@
         </div>
       </div>
 
-      <div class="container-fluid mt-3"  style="padding-left: 55px;">
-        <table class="table border border-1">
-          <thead class="thead-dark">
-            <tr>
-              <th>#</th>
-              <th>thead-dark</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="container-fluid mt-3"  style="padding-left: 55px; ">
+        <div class="container border border-dark table-sticky">
+          <table class="table border border-1">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>thead-dark</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Nina</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Nina</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Nina</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Nina</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Nina</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Nina</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Nina</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Nina</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Nina</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Nina</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Nina</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
 
 
   </body>
