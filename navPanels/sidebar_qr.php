@@ -63,7 +63,7 @@
 
           </div> -->
 
-         <form enctype="multipart/form-data" action="../includes/qr_gen.php" method="POST">
+         <form enctype="multipart/form-data" action="../includes/qr_gen.php" method="GET">
            <div class="input-group">
 
              <div class="form-group mx-3 mb-2">
@@ -111,6 +111,14 @@
                <select name="RoomCategory" id="" class="form-select mb-2">
                  <option value='1'>Laboratory Room</option>
                  <option value='2'>Lecture Room</option>
+               </select>
+             </div>
+
+             <div class="form-group mx-3 mb-3">
+               <label for="SelectCategory" class="form-label">Department</label>
+               <select name="DeptCategory" id="" class="form-select mb-2">
+                 <option value='1'>CSD Department</option>
+                 <option value='2'>EDUC Department</option>
                </select>
              </div>
 

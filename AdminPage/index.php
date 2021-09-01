@@ -58,12 +58,12 @@
       <br>
       <br> -->
 
+
+
+
       <?php include_once '../navPanels/sidebar_users.php'; ?>
       <?php include_once '../navPanels/sidebar_qr.php'; ?>
       <?php include_once '../navPanels/sidebar_search.php'; ?>
-
-
-
 
       <div class="container-fluid">
         <div class="row justify-content-center">

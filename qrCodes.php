@@ -18,43 +18,20 @@
     <script src="js/cdn.jquery.min.js"></script>
     <script src="js/custom.js"></script>
 
-    <style>
-      .blue {
-          background-color: rgba(10, 25, 75, 1);
-      }
-      .dirtWhite {
-        background-color: rgba(245, 245, 245, 1);
-      }
-      .tranDark {
-        background-color: rgba(50, 50, 50, 0.5);
-      }
-      .vh50 {
-        height: 140px;
-      }
-      }
-      .vh25{
-        height: 60px;
-      }
+    <style media="screen">
+    .Aharoni {
+      font-family: "Aharoni";
+    }
+    .blue {
+      background-color: rgba(225, 0, 50, 0.8);
+    }
     </style>
+
   </head>
   <body>
 
 
 
-
-
-      <!-- <input type="checkbox" id="check">
-      <label for="check">
-        <i class="bi bi-house-fill" id="btn"></i>
-        <i class="bi bi-x" id="cancel"></i>
-      </label>
-      <div class="sidebar">
-        <header>Home</header>
-      </div> -->
-<!--
-      <br>
-      <br>
-      <br> -->
 
 
       <div class="container-fluid">
@@ -64,35 +41,64 @@
 
           <div class="col-sm-4 mt-4">
             <div class="card border border-dark rounded">
-              <div class="card-header">
-                <h4>Item Info</h4>
+              <div class="card-header blue">
+                <h4 class="my-1 text-light">BUPC Asset's Information</h4>
               </div>
               <div class="card-body">
                 <?php
-                if(isset($_POST['btnsubmit'])){
+                  // $id = $_SERVER['REQUEST_URI'];
+                  // $parseID = parse_url($id, PHP_URL_QUERY);
+                  // $clrID = htmlentities($parseID);
+                  // echo $parseID;
+                  $id = $_GET['ID'];
 
-                  $ASSname = mysqli_real_escape_string($conn, $_POST['txtqr']);
-                  $incharge = mysqli_real_escape_string($conn, $_POST['incharge']);
-                  $location = mysqli_real_escape_string($conn, $_POST['itmLoc']);
-                  $efcdate = mysqli_real_escape_string($conn, $_POST['EFdate']);
-                  $category = mysqli_real_escape_string($conn, $_POST['ItemCategory']);
-                  $roomCat = mysqli_real_escape_string($conn, $_POST['RoomCategory']);
+                  $sql = "SELECT a_name, i.ac_name, ct.cat_name, a_location, a_person_incharge, a_effectivty_date
+                          	FROM `assets` ac
+                              	JOIN `asset_cat` i
+                                ON ac.ac_id = i.ac_id
+                                JOIN `category` ct
+                                ON ac.cat_id = ct.cat_id
+                                  WHERE a_name = '{$id}';";
+                  $result = mysqli_query($conn, $sql);
+                  $resultCheck = mysqli_num_rows($result);
+
+                  while ($row = mysqli_fetch_assoc($result)) {
+
+                      ?>
+
+                      <table>
+                        <tr>
+                          <td><h6>Asset's Name: </h6></td>
+                          <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['a_name'] ;?></h6></td>
+                        </tr>
+                        <tr>
+                          <td><h6>Asset's Category: </h6></td>
+                          <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['ac_name'] ;?></h6></td>
+                        </tr>
+                        <tr>
+                          <td><h6>Room Type: </h6></td>
+                          <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['cat_name'] ;?></h6></td>
+                        </tr>
+                        <tr>
+                          <td><h6>Location:</h6></td>
+                          <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['a_location'] ;?></h6></td>
+                        </tr>
+                        <tr>
+                          <td><h6>Personnel Incharge:</h6></td>
+                          <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['a_person_incharge'] ;?></h6></td>
+                        </tr>
+                        <tr>
+                          <td><h6>Released Date:</h6></td>
+                          <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['a_effectivty_date'] ;?></h6></td>
+                        </tr>
+                      </table>
 
 
-                      // echo "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=$ASSname$incharge$location$efcdate$category$roomCat' height=250 width=250/>";
 
-                    // echo $ASSname . "<br>" . $incharge . "<br>" . $location . "<br>" . $efcdate . "<br>" . $category . "<br>" . $roomCat . "<br>"  ;
-                    ?>
+                  <?php
 
-                    <p>
-                      <?php
-                      echo $ASSname . "<br>" . $incharge . "<br>" . $location . "<br>" . $efcdate . "<br>" . $category . "<br>" . $roomCat . "<br>"  ;
-                       ?>
-                    </p>
+                  }
 
-                    <?php
-
-                    }
                  ?>
               </div>
             </div>
@@ -102,31 +108,6 @@
         </div>
       </div>
 
-<!--
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="container py-1" style="padding-left: 55px;">
-            <h4 class="bg-info p-2 mt-2 text-center ">BUPC Assets Inventory</h4>
-            <?php
-             // if(isset($_POST['btnsubmit']))
-             // {
-             // $data = trim($_POST['txtqr']);
-             // $data1 = trim($_POST['itemQTY']);
-             // $data2 = 'https://192.168.1.118/capstone_project/index.php';
-             //
-             // echo "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=$data2' height=250 width=250/>";
-             //
-             // }
-
-
-
-            ?>
-          </div>
-        </div>
-      </div>
- -->
-
-
 
 
   </body>
@@ -135,6 +116,5 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
-  <!-- <script src="../css/sidebars.js"></script> -->
   <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 </html>
