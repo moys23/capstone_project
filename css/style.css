@@ -1,10 +1,16 @@
+.size1 {
+  font-size: 11px;
+}
+
+.witt {
+  width: 135px;
+}
 
 .table-sticky {
   /* Scrollable contents */
     top: 0;
-    height: calc(470px - 48px);
-    padding-top: .5rem;
-    overflow-x: hidden;
+    height: calc(490px - 48px);
+    overflow-x: auto;
     overflow-y: auto;
 }
 

@@ -89,7 +89,7 @@
 
 
 
-              $linkpage = 'https://10.0.0.36/capstone_project/qrCodes.php?ID=' . $ASSname;
+              // $linkpage = 'https://10.0.0.36/capstone_project/qrCodes.php?ID=' . $ASSname;
 
 
               //CHECK IF EMPTY INPUT
@@ -110,6 +110,8 @@
                   $sql = "INSERT INTO `assets` (a_name, ac_id, cat_id, dept_id, a_location, a_person_incharge, a_effectivty_date) VALUES ('$ASSname', '$category',  '$roomCat', '$deptCat', '$location' , '$incharge', '$efcdate') ;";
 
                   mysqli_query($conn, $sql);
+                  $linkpage = 'https://10.0.0.36/capstone_project/qrCodes.php?ID=' . $ASSname;
+
                   echo "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl= $linkpage'>";
 
                   ?>
@@ -117,7 +119,7 @@
 
 
 
-                  <button onclick="window.print()" class="btn btn-outline-success" value="<?php echo mysqli_ins; ?>"></button>
+                  <button onclick="window.print()" class="btn btn-outline-success">Print</button>
 
 
                   <?php

@@ -1,33 +1,65 @@
 <?php
 
-function checkImage($img_file, $targetdir, $targetimagename){
+function totalCSD($conn, $count) {
+    $data1 = 1;
+    $sql = "SELECT count(dept_id) cnt FROM `assets` WHERE dept_id = '{$data1}' ;";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_row($result);
 
- $stat = array(
- 'fileSizeOk' => '',
- 'fileExists' => '',
- 'fileType' => ''
- );
-
-    $tmp_filename = $img_file['tmp_name'];
-    $file_size = $img_file['size'];
-    $img_size = getimagesize($img_file['tmp_name']);
-    $img_mime = $img_size['mime'];
-    $acceptable_files = array('image/jpeg','image/png','image/jpg');
-
-    if(! in_array($img_mime, $acceptable_files)){
-        $stat['fileType'] = "This file is not an Image .[jpg / png] only";
+    if($row){
+        return $row[0];
     }
-    if($img_size === false || $file_size > 500000){
-        $stat['fileSizeOk'] = "Image size is not acceptable [5MB below only]";
+    else{
+        return 0;
     }
-    if(file_exists($targetdir."/".$targetimagename)){
-        $stat['fileExists'] = "File Exists. Change the Item Name";
-    }
+}
 
-    return $stat;
+function totalEDUC($conn, $count) {
+    $data1 = 2;
+    $sql = "SELECT count(dept_id) cnt FROM `assets` WHERE dept_id = '{$data1}' ;";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_row($result);
+
+    if($row){
+        return $row[0];
+    }
+    else{
+        return 0;
+    }
+}
+
+function dataTable($conn, $count){
+    $sqldata = "SELECT a_name, i.ac_name, ct.cat_name, dt.dept_name, a_location, a_person_incharge, a_effectivty_date
+              FROM `assets` ac
+                  JOIN `asset_cat` i
+                  ON ac.ac_id = i.ac_id
+                  JOIN `category` ct
+                  ON ac.cat_id = ct.cat_id
+                  JOIN `department` dt
+                  ON ac.dept_id = dt.dept_id;";
+    $result = mysqli_query($conn, $sqldata);
+    $resultCheck = mysqli_num_rows($result);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+
+
+    ?>
+        <tr>
+          <td><?php echo $row['a_name'] ;?></td>
+          <td><?php echo $row['ac_name'] ;?></td>
+          <td><?php echo $row['cat_name'] ;?></td>
+          <td><?php echo $row['a_location'] ;?></td>
+          <td><?php echo $row['a_person_incharge'] ;?></td>
+          <td><?php echo $row['a_effectivty_date'] ;?></td>
+          <td><?php echo $row['dept_name'] ;?></td>
+        </tr>
+
+<?php
+
 }
 
 
+}
 
 
 

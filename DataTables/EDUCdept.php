@@ -2,6 +2,7 @@
   session_start();
   include_once '../includes/conn.php';
   include_once '../includes/URLhandler.php';
+  include_once '../includes/function.php';
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +75,7 @@
                   Total Assets
                 </h6>
                 <h1>
-                  1
+                  <?php echo totalEDUC($conn, $_SESSION['user_uid']) ?>
                 </h1>
               </span>
           </div>

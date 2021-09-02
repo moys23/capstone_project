@@ -2,6 +2,7 @@
   session_start();
   include_once '../includes/conn.php';
   include_once '../includes/URLhandler.php';
+  include_once '../includes/function.php';
 ?>
 
 <!DOCTYPE html>
@@ -69,83 +70,45 @@
         <div class="row justify-content-center">
           <div class="container py-1" style="padding-left: 55px;">
             <h4 class="bg-info p-2 mt-2 text-center border border-dark">BUPC Assets Inventory</h4>
-              <span class="col-sm-6 badge badge-primary text-dark border border-dark" style="margin-left: 23px;">
+              <span class="col-sm-6 mx-1 badge badge-primary text-dark border border-dark witt">
                 <h6>
                   CESD Assets
                 </h6>
                 <h1>
-                  1
+                  <?php echo totalCSD($conn, $_SESSION['user_uid']) ?>
                 </h1>
               </span>
-              <span class="col-sm-6 mx-2 badge badge-primary text-dark border border-dark">
+              <span class="col-sm-6 badge mx-1 badge-primary text-dark border border-dark witt">
                 <h6>
                   EDUC Assets
                 </h6>
                 <h1>
-                  1
+                  <?php echo totalEDUC($conn, $_SESSION['user_uid']) ?>
                 </h1>
               </span>
           </div>
         </div>
       </div>
 
-      <div class="container-fluid mt-3"  style="padding-left: 55px; ">
-        <div class="container border border-dark table-sticky">
-        <table class="table border border-1">
-          <thead class="thead-dark">
-            <tr>
-              <th>#</th>
-              <th>thead-dark</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="container-fluid mt-3" style="padding-left: 55px; ">
+        <div class="border border-dark table-sticky">
+          <table class="table">
+            <thead class="thead-dark size1 bg-primary">
+              <tr>
+                <th>Name</th>
+                <th>Asset Category</th>
+                <th>Room Type</th>
+                <th>Location</th>
+                <th>Personnel Incharge</th>
+                <th>Released Date</th>
+                <th>Department</th>
+              </tr>
+            </thead>
+            <tbody class="size1">
+                <?php echo dataTable($conn, $_SESSION['user_uid']) ?>
+            </tbody>
+          </table>
+        </div>
       </div>
 
 

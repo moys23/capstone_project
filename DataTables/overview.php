@@ -2,6 +2,7 @@
   session_start();
   include_once '../includes/conn.php';
   include_once '../includes/URLhandler.php';
+  include_once '../includes/function.php';
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +80,7 @@
                   CESD Assets
                 </h6>
                 <h1>
-                  1
+                  <?php echo totalCSD($conn, $_SESSION['user_uid']) ?>
                 </h1>
               </span>
               <span class="col-sm-6 mx-2 badge badge-primary text-dark border border-dark">
@@ -87,7 +88,7 @@
                   EDUC Assets
                 </h6>
                 <h1>
-                  1
+                  <?php echo totalEDUC($conn, $_SESSION['user_uid']) ?>
                 </h1>
               </span>
           </div>

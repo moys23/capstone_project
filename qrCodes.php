@@ -52,12 +52,14 @@
                   // echo $parseID;
                   $id = $_GET['ID'];
 
-                  $sql = "SELECT a_name, i.ac_name, ct.cat_name, a_location, a_person_incharge, a_effectivty_date
+                  $sql = "SELECT a_name, i.ac_name, ct.cat_name, dt.dept_name, a_location, a_person_incharge, a_effectivty_date
                           	FROM `assets` ac
                               	JOIN `asset_cat` i
                                 ON ac.ac_id = i.ac_id
                                 JOIN `category` ct
                                 ON ac.cat_id = ct.cat_id
+                                JOIN `department` dt
+                                ON ac.dept_id = dt.dept_id
                                   WHERE a_name = '{$id}';";
                   $result = mysqli_query($conn, $sql);
                   $resultCheck = mysqli_num_rows($result);
@@ -90,6 +92,10 @@
                         <tr>
                           <td><h6>Released Date:</h6></td>
                           <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['a_effectivty_date'] ;?></h6></td>
+                        </tr>
+                        <tr>
+                          <td><h6>Department:</h6></td>
+                          <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['dept_name'] ;?></h6></td>
                         </tr>
                       </table>
 
