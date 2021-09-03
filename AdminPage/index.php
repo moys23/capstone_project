@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="../font/bootstrap-icons.css">
     <link rel="stylesheet" href="../fontawesome/css/all.css">
     <script src="../js/cdn.jquery.min.js"></script>
-    <script src="../js/custom.js"></script>
 
     <style>
       .blue {
@@ -37,6 +36,7 @@
       .vh25{
         height: 60px;
       }
+
     </style>
   </head>
   <body>
@@ -69,31 +69,33 @@
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="container py-1" style="padding-left: 55px;">
-            <h4 class="bg-info p-2 mt-2 text-center border border-dark">BUPC Assets Inventory</h4>
-              <span class="col-sm-6 mx-1 badge badge-primary text-dark border border-dark witt">
-                <h6>
-                  CESD Assets
-                </h6>
-                <h1>
-                  <?php echo totalCSD($conn, $_SESSION['user_uid']) ?>
-                </h1>
-              </span>
-              <span class="col-sm-6 badge mx-1 badge-primary text-dark border border-dark witt">
-                <h6>
-                  EDUC Assets
-                </h6>
-                <h1>
-                  <?php echo totalEDUC($conn, $_SESSION['user_uid']) ?>
-                </h1>
-              </span>
+            <h4 class="bg-info p-2 mt-2 text-center border border-dark">
+              <strong><big>BUPCSO Assets Inventory</big></strong>
+            </h4>
+            <div class="col-8 text-center" style="margin: auto;">
+              <h6>
+                <strong>Total Registered Assets</strong>
+              </h6>
+              <div class="card border border-dark text-dark">
+                <div class="card-body">
+                  <h7>
+                    <big>
+                      <strong>
+                        <?php echo totalCount($conn, $_SESSION['user_uid']) ?>
+                      </strong>
+                    </big>
+                  </h7>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="container-fluid mt-3" style="padding-left: 55px; ">
+      <div class="container-fluid mt-2" style="padding-left: 55px; ">
         <div class="border border-dark table-sticky">
-          <table class="table">
-            <thead class="thead-dark size1 bg-primary">
+          <table class="table text-center">
+            <thead class="text-light size1 bg-primary">
               <tr>
                 <th>Name</th>
                 <th>Asset Category</th>

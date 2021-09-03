@@ -82,13 +82,8 @@
              </div>
 
              <div class="form-group mx-3 mb-1">
-               <label for="item">Location</label>
-               <input type="text" class="form-control border border-dark" name="itmLoc" required>
-             </div>
-
-             <div class="form-group mx-3 mb-1">
-               <label for="SelectCategory" class="form-label">Category</label>
-               <select name="ItemCategory" id="" class="form-select mb-2">
+               <label for="SelectCategory">Category</label>
+               <select name="ItemCategory" class="form-select mb-2" required>
                  <option value='1'>Armed-chair</option>
                  <option value='2'>Table</option>
                  <option value="3">Electric Fan</option>
@@ -106,17 +101,29 @@
                </select>
              </div>
 
+             <div class="form-group mx-3 mb-1">
+               <label for="item">Location</label>
+               <select class="form-select mb-2" name="itmLoc" required>
+                 <option value="1">SB-1</option>
+                 <option value="2">SB-2</option>
+                 <option value="3">SB-3</option>
+                 <option value="4">ECB-15</option>
+                 <option value="5">ECB-16</option>
+                 <option value="6">ECB-17</option>
+               </select>
+             </div>
+
              <div class="form-group mx-3 mb-3">
-               <label for="SelectCategory" class="form-label">Room Category</label>
-               <select name="RoomCategory" id="" class="form-select mb-2">
+               <label for="SelectCategory">Room Category</label>
+               <select name="RoomCategory" id="" class="form-select mb-2" required>
                  <option value='1'>Laboratory Room</option>
                  <option value='2'>Lecture Room</option>
                </select>
              </div>
 
              <div class="form-group mx-3 mb-3">
-               <label for="SelectCategory" class="form-label">Department</label>
-               <select name="DeptCategory" id="" class="form-select mb-2">
+               <label for="SelectCategory">Department</label>
+               <select name="DeptCategory" id="" class="form-select mb-2" required>
                  <option value='1'>CSD Department</option>
                  <option value='2'>EDUC Department</option>
                </select>

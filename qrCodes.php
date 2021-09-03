@@ -52,7 +52,7 @@
                   // echo $parseID;
                   $id = $_GET['ID'];
 
-                  $sql = "SELECT a_name, i.ac_name, ct.cat_name, dt.dept_name, a_location, a_person_incharge, a_effectivty_date
+                  $sql = "SELECT a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
                           	FROM `assets` ac
                               	JOIN `asset_cat` i
                                 ON ac.ac_id = i.ac_id
@@ -60,6 +60,8 @@
                                 ON ac.cat_id = ct.cat_id
                                 JOIN `department` dt
                                 ON ac.dept_id = dt.dept_id
+                                JOIN `location` lc
+                                ON ac.loc_id = lc.loc_id
                                   WHERE a_name = '{$id}';";
                   $result = mysqli_query($conn, $sql);
                   $resultCheck = mysqli_num_rows($result);
@@ -83,7 +85,7 @@
                         </tr>
                         <tr>
                           <td><h6>Location:</h6></td>
-                          <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['a_location'] ;?></h6></td>
+                          <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['loc_name'] ;?></h6></td>
                         </tr>
                         <tr>
                           <td><h6>Personnel Incharge:</h6></td>

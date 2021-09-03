@@ -2,6 +2,15 @@
   font-size: 11px;
 }
 
+.size2 {
+  font-size: 13px;
+}
+
+.size3 {
+  height: 30px;
+  width: 30px;
+}
+
 .witt {
   width: 135px;
 }
@@ -9,7 +18,7 @@
 .table-sticky {
   /* Scrollable contents */
     top: 0;
-    height: calc(490px - 48px);
+    height: calc(460px - 48px);
     overflow-x: auto;
     overflow-y: auto;
 }
@@ -39,5 +48,10 @@
 }
 
 #headTitle {
-  font-family: "Artifakt Element Hair";
+  font-family: "Bahnschrift Condensed";
+  width: 270px;
+  margin-left: 10px;
+  margin-right: 0px;
+  font-size: 26px;
+  line-height: 30px;
 }

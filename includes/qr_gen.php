@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="../font/bootstrap-icons.css">
     <link rel="stylesheet" href="../fontawesome/css/all.css">
     <script src="../js/cdn.jquery.min.js"></script>
-    <script src="../js/custom.js"></script>
 
 <!--    <style>
       .blue {
@@ -45,7 +44,7 @@
 
 
 
-      <!-- <input type="checkbox" id="check">
+      <input type="checkbox" id="check">
       <label for="check">
         <i class="bi bi-house-fill" id="btn"></i>
         <i class="bi bi-x" id="cancel"></i>
@@ -89,7 +88,7 @@
 
 
 
-              // $linkpage = 'https://10.0.0.36/capstone_project/qrCodes.php?ID=' . $ASSname;
+              $linkpage = 'https://10.0.0.36/capstone_project/qrCodes.php?ID=' . $ASSname;
 
 
               //CHECK IF EMPTY INPUT
@@ -107,10 +106,10 @@
                 }else {
 
                   //INSERT THE USER INTO THE DATABASE
-                  $sql = "INSERT INTO `assets` (a_name, ac_id, cat_id, dept_id, a_location, a_person_incharge, a_effectivty_date) VALUES ('$ASSname', '$category',  '$roomCat', '$deptCat', '$location' , '$incharge', '$efcdate') ;";
+                  $sql = "INSERT INTO `assets` (a_name, ac_id, cat_id, dept_id, loc_id, a_person_incharge, a_effectivty_date) VALUES ('$ASSname', '$category',  '$roomCat', '$deptCat', '$location' , '$incharge', '$efcdate') ;";
 
                   mysqli_query($conn, $sql);
-                  $linkpage = 'https://10.0.0.36/capstone_project/qrCodes.php?ID=' . $ASSname;
+                  // $linkpage = 'https://10.0.0.36/capstone_project/qrCodes.php?ID=' . $ASSname;
 
                   echo "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl= $linkpage'>";
 
