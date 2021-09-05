@@ -55,12 +55,9 @@
         <div class="row justify-content-center">
           <div class="container py-1" style="padding-left: 55px;">
             <h4 class="bg-info p-2 mt-2 text-center border border-dark">
-              <strong><big>Armed-chair Section</big></strong>
+              <strong><big>Search Results</big></strong>
             </h4>
             <div class="col-8 text-center" style="margin: auto;">
-              <h6>
-                <strong>Total Registered Assets</strong>
-              </h6>
               <!-- <div class="card border border-dark text-dark">
                 <div class="card-body">
                   <h7>

@@ -2,6 +2,7 @@
   session_start();
   include_once '../includes/conn.php';
   include_once '../includes/URLhandler.php';
+  include_once '../includes/function.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,6 @@
     <link rel="stylesheet" href="../font/bootstrap-icons.css">
     <link rel="stylesheet" href="../fontawesome/css/all.css">
     <script src="../js/cdn.jquery.min.js"></script>
-    <script src="../js/custom.js"></script>
 
     <style>
       .blue {
@@ -36,6 +36,7 @@
       .vh25{
         height: 60px;
       }
+
     </style>
   </head>
   <body>
@@ -58,91 +59,58 @@
       <br>
       <br> -->
 
-      <?php include_once '../navPanels/idebar_search.php'; ?>
 
 
 
+      <?php include_once '../navPanels/sidebar_search.php'; ?>
 
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="container py-1" style="padding-left: 55px;">
-            <h4 class="bg-info p-2 mt-2 text-center ">Assets Inventory System</h4>
-              <span class="col-sm-6 badge badge-primary text-dark border border-dark" style="margin-left: 15px;">
-                <h6>
-                  CESD Assets
-                </h6>
-                <h1>
-                  1
-                </h1>
-              </span>
-              <span class="col-sm-6 mx-2 badge badge-primary text-dark border border-dark">
-                <h6>
-                  EDUC Assets
-                </h6>
-                <h1>
-                  1
-                </h1>
-              </span>
+            <h4 class="bg-info p-2 mt-2 text-center border border-dark">
+              <strong><big>BUPCSO Assets Inventory</big></strong>
+            </h4>
+            <div class="col-8 text-center" style="margin: auto;">
+              <h6>
+                <strong>Total Registered Assets</strong>
+              </h6>
+              <div class="card border border-dark text-dark">
+                <div class="card-body">
+                  <h7>
+                    <big>
+                      <strong>
+                        <?php echo totalCount($conn, $_SESSION['user_uid']) ?>
+                      </strong>
+                    </big>
+                  </h7>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="container-fluid mt-3"  style="padding-left: 55px;">
-        <table class="table border border-1">
-          <thead class="thead-dark">
-            <tr>
-              <th>#</th>
-              <th>thead-dark</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Nina</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="container-fluid mt-2" style="padding-left: 55px; ">
+        <div class="border border-dark table-sticky">
+          <table class="table text-center">
+            <thead class="text-light size1 bg-primary">
+              <tr>
+                <th>Name</th>
+                <th>Asset Category</th>
+                <th>Room Type</th>
+                <th>Location</th>
+                <th>Personnel Incharge</th>
+                <th>Released Date</th>
+                <th>Department</th>
+              </tr>
+            </thead>
+            <tbody class="size1">
+                <?php echo dataTable($conn, $_SESSION['user_uid']) ?>
+            </tbody>
+          </table>
+        </div>
       </div>
+
 
 
 
@@ -152,6 +120,5 @@
   <script src="../js/jquery.min.js"></script>
   <script src="../js/bootstrap.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
-  <!-- <script src="../css/sidebars.js"></script> -->
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </html>

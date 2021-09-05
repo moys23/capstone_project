@@ -20,7 +20,7 @@
            </div>
          </form>
 
-         <?php echo searchResult($conn, $_SESSION['user_uid']) ?>
+         <?php// echo searchResult($conn, $_SESSION['user_uid']) ?>
 
        </div>
        </div>

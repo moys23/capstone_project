@@ -1,5 +1,87 @@
 <?php
 
+function updateBtn($conn, $count){
+
+  if (isset($_GET['search'])) {
+
+    $data = htmlentities($_GET['srchkey']);
+
+
+    $sql = "SELECT  a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
+              FROM `assets` ac
+                JOIN `asset_cat` i
+                ON ac.ac_id = i.ac_id
+                JOIN `category` ct
+                ON ac.cat_id = ct.cat_id
+                JOIN `department` dt
+                ON ac.dept_id = dt.dept_id
+                JOIN `location` lc
+                ON ac.loc_id = lc.loc_id
+                  WHERE a_name LIKE '{$data}'
+                    OR i.ac_name LIKE '{$data}'
+                    OR ct.cat_name LIKE '{$data}'
+                    OR dt.dept_name LIKE '{$data}'
+                    OR lc.loc_name LIKE '{$data}'
+                    OR a_person_incharge LIKE '{$data}'
+                    OR a_effectivty_date LIKE '{$data}'
+                    ;";
+      $result = mysqli_query($conn, $sql);
+      $resultCheck = mysqli_num_rows($result);
+
+      ?>
+
+      <div class="container  border border-dark search-sticky mt-2" style="padding: 0">
+        <table class="table text-center">
+          <thead class="text-light size1 bg-success">
+            <tr>
+              <th class=" border-bottom border-dark">Name</th>
+              <th class=" border-bottom border-dark">Assets Category</th>
+              <th class=" border-bottom border-dark">Room Type</th>
+              <th class=" border-bottom border-dark">Location</th>
+              <th class=" border-bottom border-dark">Personnel Incharge</th>
+              <th class=" border-bottom border-dark">Released Date</th>
+              <th class=" border-bottom border-dark">Department</th>
+              <th class=" border-bottom border-dark">Options</th>
+            </tr>
+          </thead>
+          <tbody class="size1">
+
+      <?php
+
+
+            while ($row = mysqli_fetch_assoc($result)) {
+
+              ?>
+
+              <tr>
+                <td><?php echo $row['a_name'] ;?></td>
+                <td><?php echo $row['ac_name'] ;?></td>
+                <td><?php echo $row['cat_name'] ;?></td>
+                <td><?php echo $row['loc_name'] ;?></td>
+                <td><?php echo $row['a_person_incharge'] ;?></td>
+                <td><?php echo $row['a_effectivty_date'] ;?></td>
+                <td><?php echo $row['dept_name'] ;?></td>
+                <td>
+                  <button class="btn btn-warning border border-dark" type="btnEdit" name="button">Update</button>
+                </td>
+              </tr>
+
+              <?php
+
+            }
+
+          ?>
+
+        </tbody>
+      </table>
+    </div>
+
+          <?php
+
+    }
+
+}
+
 function searchResult($conn, $count) {
 
     if (isset($_GET['search'])) {
