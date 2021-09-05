@@ -13,12 +13,14 @@
        </div>
        <div class="modal-body text-dark">
 
-         <form method="GET">
+         <form action="../DataTables/search.php" method="GET">
            <div class="input-group">
-             <input id="searchbar" class="form-control p-2 mx-2 rounded" type="text" name="srchkey" placeholder="Search">
+             <input id="searchbar" class="form-control p-2 mx-2 rounded" type="text" name="srchkey" required placeholder="Search">
              <button class="btn btn-success rounded" type="submit" name="search">Search <i class="bi bi-search"></i></button>
            </div>
          </form>
+
+         <?php echo searchResult($conn, $_SESSION['user_uid']) ?>
 
        </div>
        </div>

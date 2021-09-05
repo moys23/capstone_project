@@ -87,7 +87,7 @@
 
                <div class="form-group mt-1 mx-1">
                    <label for="SelectCategory" class="form-label">Restriction</label>
-                   <select name="AdminCategory" id="" class="form-select mb-2">
+                   <select name="AdminCategory" class="form-select mb-2">
                        <option value='A'>Admin</option>
                        <option value='B'>Stuff Admin</option>
                    </select>
@@ -95,7 +95,7 @@
              </div>
              <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-               <button type="submit" class="btn btn-primary" id="subBtn" name="createUser">Submit</button>
+               <button type="submit" class="btn btn-primary" name="createUser">Submit</button>
              </div>
            </form>
          </div>

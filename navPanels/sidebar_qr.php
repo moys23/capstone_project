@@ -115,7 +115,7 @@
 
              <div class="form-group mx-3 mb-3">
                <label for="SelectCategory">Room Category</label>
-               <select name="RoomCategory" id="" class="form-select mb-2" required>
+               <select name="RoomCategory" class="form-select mb-2" required>
                  <option value='1'>Laboratory Room</option>
                  <option value='2'>Lecture Room</option>
                </select>
@@ -123,7 +123,7 @@
 
              <div class="form-group mx-3 mb-3">
                <label for="SelectCategory">Department</label>
-               <select name="DeptCategory" id="" class="form-select mb-2" required>
+               <select name="DeptCategory" class="form-select mb-2" required>
                  <option value='1'>CSD Department</option>
                  <option value='2'>EDUC Department</option>
                </select>
@@ -133,7 +133,8 @@
 
 
            <div class="modal-footer">
-             <button type="submit" class="btn btn-primary mb-0" id="subBtn" name="btnsubmit">Submit</button>
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+             <button type="submit" class="btn btn-primary "name="btnsubmit">Submit</button>
            </div>
          </form>
 
