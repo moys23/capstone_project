@@ -40,6 +40,10 @@
     overflow-y: auto;
 }
 
+#searchbar2 {
+  height: 33px;
+}
+
 #links {
   text-decoration: none;
 }

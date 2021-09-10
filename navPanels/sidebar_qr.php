@@ -83,7 +83,7 @@
 
              <div class="form-group mx-3 mb-1">
                <label for="SelectCategory">Category</label>
-               <select name="ItemCategory" class="form-select mb-2" required>
+               <select name="ItemCategory" class="form-select border border-dark mb-2" required>
                  <option value='1'>Armed-chair</option>
                  <option value='2'>Table</option>
                  <option value="3">Electric Fan</option>
@@ -103,7 +103,7 @@
 
              <div class="form-group mx-3 mb-1">
                <label for="item">Location</label>
-               <select class="form-select mb-2" name="itmLoc" required>
+               <select class="form-select border border-dark mb-2" name="itmLoc" required>
                  <option value="1">SB-1</option>
                  <option value="2">SB-2</option>
                  <option value="3">SB-3</option>
@@ -115,7 +115,7 @@
 
              <div class="form-group mx-3 mb-3">
                <label for="SelectCategory">Room Category</label>
-               <select name="RoomCategory" class="form-select mb-2" required>
+               <select name="RoomCategory" class="form-select border border-dark mb-2" required>
                  <option value='1'>Laboratory Room</option>
                  <option value='2'>Lecture Room</option>
                </select>
@@ -123,7 +123,7 @@
 
              <div class="form-group mx-3 mb-3">
                <label for="SelectCategory">Department</label>
-               <select name="DeptCategory" class="form-select mb-2" required>
+               <select name="DeptCategory" class="form-select border border-dark mb-2" required>
                  <option value='1'>CSD Department</option>
                  <option value='2'>EDUC Department</option>
                </select>
