@@ -88,7 +88,7 @@
 
 
 
-              $linkpage = 'https://10.0.0.37/capstone_project/qrCodes.php?ID=' . $ASSname;
+              $linkpage = 'https://192.168.137.1/capstone_project/qrCodes.php?ID=' . $ASSname;
 
 
               //CHECK IF EMPTY INPUT
