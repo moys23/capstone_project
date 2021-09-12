@@ -6,7 +6,7 @@
      <div class="modal-dialog" role="document">
        <div class="modal-content">
          <div class="modal-header">
-           <h5 class="modal-title m-0 text-dark" id="SearchIconLabel">BUPC Suppl Office Inventory System</h5>
+           <h6 class="modal-title m-0 text-dark" id="SearchIconLabel">BUPC Supply Office Inventory System</h6>
            <button type="button" class="close btn btn-transparent" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>

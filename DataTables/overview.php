@@ -67,6 +67,7 @@
       <?php include_once '../navPanels/sidebar_users.php'; ?>
       <?php include_once '../navPanels/sidebar_qr.php'; ?>
       <?php include_once '../navPanels/sidebar_search.php'; ?>
+      <?php include_once '../navPanels/sidebar_update.php'; ?>
 
 
 

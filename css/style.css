@@ -23,6 +23,14 @@
     overflow-y: auto;
 }
 
+.table-sticky2 {
+  /* Scrollable contents */
+    top: 0;
+    height: calc(600px - 48px);
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
 .table-sticky {
   /* Scrollable contents */
     top: 0;

@@ -1,5 +1,18 @@
   <nav id="colorDesign" class="navbar navbar-expand-md navbar-dark text-light">
-    <a href="../AdminPage/index.php" class="text-decoration-none">
+    <a href="
+      <?php
+
+      if ($_SESSION['user_usertype'] == 'A') {
+        // header("location: ../AdminPage/index.php?overview");
+        echo "../AdminPage/index.php?overview";
+      }
+      elseif ($_SESSION['user_usertype'] == 'B') {
+        // header("location: ../UsersPage/index.php?overview");
+        echo "../UsersPage/index.php?overview";
+      }
+
+      ?>
+    " class="text-decoration-none">
       <h2 id="headTitle" class="pt-2 text-light">BUPC Supply Office <img src="../images/pcLogo.png" class="rounded-circle size3"></h2>
     </a>
 
@@ -13,7 +26,22 @@
             <li class="nav-item dropdown mx-2">
               <a class="nav-link text-light dropdown-toggle" id="drpOverview" role="button" data-toggle="dropdown">Department</a>
               <div class="dropdown-menu" aria-labelledby="drpOverview">
-                <a class="dropdown-item" href="../AdminPage/index.php?view">Overview</a>
+                <a class="dropdown-item" href="
+
+                <?php
+
+                if ($_SESSION['user_usertype'] == 'A') {
+                  // header("location: ../AdminPage/index.php?overview");
+                  echo "../AdminPage/index.php?overview";
+                }
+                elseif ($_SESSION['user_usertype'] == 'B') {
+                  // header("location: ../UsersPage/index.php?overview");
+                  echo "../UsersPage/index.php?overview";
+                }
+
+                ?>
+
+                ">Overview</a>
                 <a class="dropdown-item" href="../DataTables/CSDepartment.php?view">CSD Department</a>
                 <a class="dropdown-item" href="../DataTables/EDUCdept.php?view">EDUC Department</a>
               </div>
@@ -62,11 +90,12 @@
                   </a>
 
                     <ul class="dropdown-menu text-small shadow" aria-labelledby="dpAccount">
-                        <li><a id="dp1" class="dropdown-item text-dark" href="#">Profile</a></li>
+                        <li><a class="dropdown-item text-dark" href="#">About</a></li>
+                        <li><a class="dropdown-item text-dark" href="#">Profile</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a id="dp1" class="dropdown-item text-dark" href="../includes/logout.php">Sign out</a></li>
+                        <li><a class="dropdown-item text-dark" href="../includes/logout.php">Sign out</a></li>
                     </ul>
                 </div>
               </li>

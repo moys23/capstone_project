@@ -46,10 +46,19 @@
 
 
 
+    <?php
 
-      <?php include_once '../navPanels/sidebar_users.php'; ?>
-      <?php include_once '../navPanels/sidebar_qr.php'; ?>
-      <?php include_once '../navPanels/sidebar_search.php'; ?>
+    if ($_SESSION['user_usertype'] == 'A') {
+      include_once '../navPanels/sidebar_search.php';
+      include_once '../navPanels/sidebar_users.php';
+      include_once '../navPanels/sidebar_qr.php';
+      include_once '../navPanels/sidebar_update.php';
+    }
+    elseif ($_SESSION['user_usertype'] == 'B') {
+      include_once '../navPanels/sidebar_search.php';
+    }
+
+     ?>
 
       <div class="container-fluid">
         <div class="row justify-content-center">
@@ -79,13 +88,13 @@
           <table class="table text-center">
             <thead class="text-light size1 bg-primary">
               <tr>
-                <th>Name</th>
-                <th>Asset Category</th>
-                <th>Room Type</th>
-                <th>Location</th>
-                <th>Personnel Incharge</th>
-                <th>Released Date</th>
-                <th>Department</th>
+                <th class="border-bottom border-dark">Name</th>
+                <th class="border-bottom border-dark">Asset Category</th>
+                <th class="border-bottom border-dark">Room Type</th>
+                <th class="border-bottom border-dark">Location</th>
+                <th class="border-bottom border-dark">Personnel Incharge</th>
+                <th class="border-bottom border-dark">Released Date</th>
+                <th class="border-bottom border-dark">Department</th>
               </tr>
             </thead>
             <tbody class="size1">

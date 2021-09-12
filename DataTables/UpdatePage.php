@@ -46,11 +46,19 @@
 
 
 
+    <?php
 
-      <?php include_once '../navPanels/sidebar_users.php'; ?>
-      <?php include_once '../navPanels/sidebar_qr.php'; ?>
-      <?php include_once '../navPanels/sidebar_search.php'; ?>
-      <?php include_once '../navPanels/sidebar_update.php'; ?>
+    if ($_SESSION['user_usertype'] == 'A') {
+      include_once '../navPanels/sidebar_search.php';
+      include_once '../navPanels/sidebar_users.php';
+      include_once '../navPanels/sidebar_qr.php';
+      include_once '../navPanels/sidebar_update.php';
+    }
+    elseif ($_SESSION['user_usertype'] == 'B') {
+      include_once '../navPanels/sidebar_search.php';
+    }
+
+     ?>
 
 
       <div class="container-fluid">
@@ -76,7 +84,7 @@
       </div>
 
       <div class="container-fluid" style="padding-left: 55px; ">
-        <div class="border border-dark table-sticky">
+        <div class="border border-dark table-sticky2">
           <table class="table">
             <thead class="text-light size1 bg-success">
               <tr>
