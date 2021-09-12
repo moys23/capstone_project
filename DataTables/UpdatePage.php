@@ -160,7 +160,7 @@
 
                                          <div class="form-group mx-3 mb-2">
                                            <label for="item">Item Name</label>
-                                           <input type="text" class="form-control border border-dark" name="num1" placeholder="<?php echo $row['a_name'] ;?>" required>
+                                           <input type="text" class="form-control border border-dark" name="num1" required>
                                          </div>
 
                                          <div class="form-group mx-3 mb-1">
