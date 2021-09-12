@@ -98,9 +98,9 @@
                 <th class=" border-bottom text-center border-dark">Department</th>
                 <!-- <th class=" border-bottom border-dark">Action</th> -->
                 <?php
-                if (isset($_GET['ID'])) {
-                  echo '<th class=" border-bottom text-center border-dark">Action</th>';
-                }
+                  if (isset($_GET['ID'])) {
+                    echo '<th class=" border-bottom text-center border-dark">Action</th>';
+                  }
                  ?>
               </tr>
             </thead>
@@ -154,13 +154,13 @@
                                        </button>
                                      </div>
                                      <div class="modal-body text-dark">
-                                     <form enctype="multipart/form-data" method="GET">
+                                     <form enctype="multipart/form-data" method="POST">
                                        <div class="input-group">
                                         <input hidden type="text" name="ID" value="<?php echo $row['a_id'] ;?>">
 
                                          <div class="form-group mx-3 mb-2">
                                            <label for="item">Item Name</label>
-                                           <input type="text" class="form-control border border-dark" name="num1" required>
+                                           <input type="text" class="form-control border border-dark" name="num1" placeholder="<?php echo $row['a_name'] ;?>" required>
                                          </div>
 
                                          <div class="form-group mx-3 mb-1">
@@ -201,7 +201,7 @@
 
 
                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                           <button type="submit" class="btn btn-primary">Submit</button>
+                                           <button type="submit" class="btn btn-primary" name="processUPDATE">Submit</button>
 
                                          </div>
                                        </div>
