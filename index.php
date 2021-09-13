@@ -76,6 +76,12 @@
                   <span aria-hidden='true'>&times;</span>
                   </button></div>";
                 }
+                if (strpos($headURL, "error=signin") == true) {
+                  echo "<div id='err1' class='alert alert-danger mt-1 rounded' role='alert'><i class='bi bi-exclamation-triangle-fill'></i>&nbsp<strong>Incorrect</strong> log in details.
+                  <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
+                  <span aria-hidden='true'>&times;</span>
+                  </button></div>";
+                }
 
                 ?>
                 <form class="text-center" action="includes/login.process.php" method="POST">

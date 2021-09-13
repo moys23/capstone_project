@@ -22,12 +22,13 @@ if (empty($username) || empty($pwd)) {
       exit();
     } else {
       if ($row = mysqli_fetch_assoc($result)) {
+        $decodeHashedPwd = password_verify($pass, $row['u_password']);
 
-        if ($pwd == false) {
+        if ($decodeHashedPwd == false) {
           header("location: ../index.php?error=signin");
           exit();
         }
-        elseif ($pwd == true) {
+        elseif ($decodeHashedPwd == true) {
           // Log in user here
           $_SESSION['user_uid']      = $row['u_id'];
           $_SESSION['user_name']     = $row['u_name'];
