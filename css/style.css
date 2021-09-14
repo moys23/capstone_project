@@ -34,7 +34,7 @@
 .table-sticky {
   /* Scrollable contents */
     top: 0;
-    height: calc(460px - 48px);
+    height: calc(580px - 48px);
     overflow-x: auto;
     overflow-y: auto;
 }
