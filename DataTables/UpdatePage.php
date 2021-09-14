@@ -88,7 +88,7 @@
           <table class="table">
             <thead class="text-light size1 bg-success">
               <tr>
-                <th class="border-bottom border-dark">Asset Code</th>
+                <th class=" border-bottom text-center border-dark">Asset Code</th>
                 <th class=" border-bottom text-center border-dark">Name</th>
                 <th class=" border-bottom text-center border-dark">Assets Category</th>
                 <th class=" border-bottom text-center border-dark">Room Type</th>
@@ -111,20 +111,17 @@
                     $ID = $_GET['ID'];
 
                     $query = "SELECT *
-                    FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                        WHERE a_id ='$ID' OR
-                          access_id LIKE '$ID' OR
-                          a_name LIKE '$ID'
-
-                          ;";
+                                FROM `assets` ac
+                                  JOIN `asset_cat` i
+                                  ON ac.ac_id = i.ac_id
+                                  JOIN `category` ct
+                                  ON ac.cat_id = ct.cat_id
+                                  JOIN `department` dt
+                                  ON ac.dept_id = dt.dept_id
+                                  JOIN `location` lc
+                                  ON ac.loc_id = lc.loc_id
+                                    WHERE a_id = '$ID' OR
+                                      access_id LIKE '$ID' ;";
                     $query_run = mysqli_query($conn, $query);
                     $result = mysqli_num_rows($query_run);
 
@@ -133,7 +130,7 @@
                           ?>
 
 
-                          <td class="size2 text-center"><?php echo $row['a_id'] ;?></td>
+                          <td class="size2 text-center"><?php echo $row['access_id'] ;?></td>
                           <td class="size2 text-center"><?php echo $row['a_name'] ;?></td>
                           <td class="size2 text-center"><?php echo $row['ac_name'] ;?></td>
                           <td class="size2 text-center"><?php echo $row['cat_name'] ;?></td>
@@ -210,7 +207,7 @@
 
                                        <?php
 
-                                         echo updateBTN($conn, $_SESSION['user_uid']);
+                                         echo dwnloadQR($conn, $_SESSION['user_uid']);
 
                                        ?>
 
@@ -254,7 +251,7 @@
 
                               ?>
                               <tr>
-                                <td class="size1 text-center"><?php echo $row['a_id'] ;?></td>
+                                <td class="size1 text-center"><?php echo $row['access_id'] ;?></td>
                                 <td class="size1 text-center"><?php echo $row['a_name'] ;?></td>
                                 <td class="size1 text-center"><?php echo $row['ac_name'] ;?></td>
                                 <td class="size1 text-center"><?php echo $row['cat_name'] ;?></td>

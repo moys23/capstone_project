@@ -1,6 +1,16 @@
 <?php
-
-
+// 
+// function dwnloadQR($conn, $count){
+//     if (isset($_GET['DLbtn'])) {
+//       $itemQR = $_GET['itemCode'];
+//       $url_to_image = 'http://192.168.137.1/capstone_project/includes/qr_gen.php?itemCode=' . $itemQR;
+//       $my_save_dir = 'images/';
+//       $filename = basename($url_to_image);
+//       $complete_save_loc = $my_save_dir . $filename;
+//       file_put_contents($complete_save_loc, file_get_contents($url_to_image));
+//     }
+//
+// }
 
 
 function updateBTN($conn, $count){
@@ -71,7 +81,7 @@ function searchResult($conn, $count) {
 
               }
 
-      } 
+      }
 
 }
 
