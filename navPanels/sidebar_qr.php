@@ -67,6 +67,11 @@
            <div class="input-group">
 
              <div class="form-group mx-3 mb-2">
+               <label for="item">Asset Code</label>
+               <input type="text" class="form-control border border-dark" name="itemCode" required>
+             </div>
+
+             <div class="form-group mx-3 mb-2">
                <label for="item">Item Name</label>
                <input type="text" class="form-control border border-dark" name="txtqr" required>
              </div>

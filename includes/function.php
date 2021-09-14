@@ -14,7 +14,7 @@ function updateBTN($conn, $count){
     $num4 = $_POST['num4'];
     $num5 = $_POST['num5'];
 
-    $sql = "UPDATE `assets` SET `a_name` = '$num1', `a_person_incharge` = '$num2',   `loc_id` = $num3, `cat_id` = $num4, `dept_id` = $num5 WHERE a_id = '$data';";
+    $sql = "UPDATE `assets` SET `a_name` = '$num1', `a_person_incharge` = '$num2',   `loc_id` = $num3, `cat_id` = $num4, `dept_id` = $num5 WHERE a_id = '$data' OR access_id = '$data';";
     $result = mysqli_query($conn, $sql);
   }
 

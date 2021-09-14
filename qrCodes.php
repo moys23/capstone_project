@@ -52,7 +52,7 @@
                   // echo $parseID;
                   $id = $_GET['ID'];
 
-                  $sql = "SELECT a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
+                  $sql = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
                           	FROM `assets` ac
                               	JOIN `asset_cat` i
                                 ON ac.ac_id = i.ac_id
@@ -62,7 +62,7 @@
                                 ON ac.dept_id = dt.dept_id
                                 JOIN `location` lc
                                 ON ac.loc_id = lc.loc_id
-                                  WHERE a_name = '{$id}';";
+                                  WHERE access_id = '{$id}';";
                   $result = mysqli_query($conn, $sql);
                   $resultCheck = mysqli_num_rows($result);
 

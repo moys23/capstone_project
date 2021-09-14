@@ -78,6 +78,7 @@
 
             if(isset($_GET['btnsubmit'])){
 
+              $itemCode = mysqli_real_escape_string($conn, $_GET['itemCode']);
               $ASSname = mysqli_real_escape_string($conn, $_GET['txtqr']);
               $incharge = mysqli_real_escape_string($conn, $_GET['incharge']);
               $location = mysqli_real_escape_string($conn, $_GET['itmLoc']);
@@ -88,15 +89,15 @@
 
 
 
-              $linkpage = 'https://192.168.137.1/capstone_project/qrCodes.php?ID=' . $ASSname;
+              $linkpage = 'https://192.168.137.1/capstone_project/qrCodes.php?ID=' . $itemCode;
 
 
               //CHECK IF EMPTY INPUT
-              if (empty($ASSname) || empty($incharge) || empty($location) || empty($efcdate) || empty($category) || empty($roomCat)) {
+              if (empty($itemCode) || empty($ASSname) || empty($incharge) || empty($location) || empty($efcdate) || empty($category) || empty($roomCat)) {
                 header("location: ../AdminPage/index.php?error=emptyinputs");
                 exit();
               }else { //CHECK IF ITEM NAME IS ALREADY TAKEN OR EXISTING
-                $sql = "SELECT * FROM `assets` WHERE a_name = '$ASSname' ;";
+                $sql = "SELECT * FROM `assets` WHERE access_id = '$itemCode' ;";
                 $result = mysqli_query($conn, $sql);
                 $resultCheck = mysqli_num_rows($result);
 
@@ -106,7 +107,7 @@
                 }else {
 
                   //INSERT THE USER INTO THE DATABASE
-                  $sql = "INSERT INTO `assets` (a_name, ac_id, cat_id, dept_id, loc_id, a_person_incharge, a_effectivty_date) VALUES ('$ASSname', '$category',  '$roomCat', '$deptCat', '$location' , '$incharge', '$efcdate') ;";
+                  $sql = "INSERT INTO `assets` (access_id, a_name, ac_id, cat_id, dept_id, loc_id, a_person_incharge, a_effectivty_date) VALUES ('$itemCode', '$ASSname', '$category',  '$roomCat', '$deptCat', '$location' , '$incharge', '$efcdate') ;";
 
                   mysqli_query($conn, $sql);
                   // $linkpage = 'https://10.0.0.36/capstone_project/qrCodes.php?ID=' . $ASSname;
