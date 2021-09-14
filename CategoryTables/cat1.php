@@ -90,6 +90,7 @@
           <table class="table text-center">
             <thead class="text-light size1 bg-primary">
               <tr >
+                <th class=" border-bottom border-dark">Asset Code</th>
                 <th class=" border-bottom border-dark">Name</th>
                 <th class=" border-bottom border-dark">Room Type</th>
                 <th class=" border-bottom border-dark">Location</th>

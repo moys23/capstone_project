@@ -95,13 +95,14 @@
           <table class="table text-center">
             <thead class="text-light size1 bg-primary">
               <tr>
-                <th>Name</th>
-                <th>Asset Category</th>
-                <th>Room Type</th>
-                <th>Location</th>
-                <th>Personnel Incharge</th>
-                <th>Released Date</th>
-                <th>Department</th>
+                <th class="border-bottom border-dark">Asset Code</th>
+                <th class="border-bottom border-dark">Name</th>
+                <th class="border-bottom border-dark">Asset Category</th>
+                <th class="border-bottom border-dark">Room Type</th>
+                <th class="border-bottom border-dark">Location</th>
+                <th class="border-bottom border-dark">Personnel Incharge</th>
+                <th class="border-bottom border-dark">Released Date</th>
+                <th class="border-bottom border-dark">Department</th>
               </tr>
             </thead>
             <tbody class="size1">

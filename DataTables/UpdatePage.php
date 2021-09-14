@@ -88,7 +88,7 @@
           <table class="table">
             <thead class="text-light size1 bg-success">
               <tr>
-                <th class=" border-bottom text-center border-dark">ID</th>
+                <th class="border-bottom border-dark">Asset Code</th>
                 <th class=" border-bottom text-center border-dark">Name</th>
                 <th class=" border-bottom text-center border-dark">Assets Category</th>
                 <th class=" border-bottom text-center border-dark">Room Type</th>

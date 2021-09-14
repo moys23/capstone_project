@@ -29,7 +29,7 @@ function searchResult($conn, $count) {
       $data = htmlentities($_GET['srchkey']);
 
 
-      $sql = "SELECT  a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
+      $sql = "SELECT  access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
                 FROM `assets` ac
                   JOIN `asset_cat` i
                   ON ac.ac_id = i.ac_id
@@ -39,7 +39,8 @@ function searchResult($conn, $count) {
                   ON ac.dept_id = dt.dept_id
                   JOIN `location` lc
                   ON ac.loc_id = lc.loc_id
-                  	WHERE a_name LIKE '%{$data}%'
+                  	WHERE access_id LIKE '%{$data}%'
+                      OR a_name LIKE '%{$data}%'
                     	OR i.ac_name LIKE '%{$data}%'
                       OR ct.cat_name LIKE '%{$data}%'
                       OR dt.dept_name LIKE '%{$data}%'
@@ -56,6 +57,7 @@ function searchResult($conn, $count) {
                 ?>
 
                 <tr>
+                  <td><?php echo $row['access_id'] ;?></td>
                   <td><?php echo $row['a_name'] ;?></td>
                   <td><?php echo $row['ac_name'] ;?></td>
                   <td><?php echo $row['cat_name'] ;?></td>
@@ -69,7 +71,7 @@ function searchResult($conn, $count) {
 
               }
 
-      }
+      } 
 
 }
 
@@ -375,7 +377,7 @@ function totalECB17($conn, $count) {
 }
 
 function dataTable($conn, $count){
-    $sqldata = "SELECT a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
+    $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
                   FROM `assets` ac
                       JOIN `asset_cat` i
                       ON ac.ac_id = i.ac_id
@@ -394,6 +396,7 @@ function dataTable($conn, $count){
 
     ?>
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['ac_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
@@ -411,7 +414,7 @@ function dataTable($conn, $count){
 }
 
 function csdTable($conn, $count){
-    $sqldata = "SELECT a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
+    $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
               FROM `assets` ac
                   JOIN `asset_cat` i
                   ON ac.ac_id = i.ac_id
@@ -430,6 +433,7 @@ function csdTable($conn, $count){
 
     ?>
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['ac_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
@@ -447,7 +451,7 @@ function csdTable($conn, $count){
 }
 
 function educTable($conn, $count){
-    $sqldata = "SELECT a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
+    $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
               FROM `assets` ac
                   JOIN `asset_cat` i
                   ON ac.ac_id = i.ac_id
@@ -466,6 +470,7 @@ function educTable($conn, $count){
 
     ?>
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['ac_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
@@ -484,7 +489,7 @@ function educTable($conn, $count){
 
 function Cat1Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -503,6 +508,7 @@ function Cat1Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -521,7 +527,7 @@ function Cat1Table($conn, $count) {
 
 function Cat2Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -540,6 +546,7 @@ function Cat2Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -557,7 +564,7 @@ function Cat2Table($conn, $count) {
 
 function Cat3Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -576,6 +583,7 @@ function Cat3Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -593,7 +601,7 @@ function Cat3Table($conn, $count) {
 
 function Cat4Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -612,6 +620,7 @@ function Cat4Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -629,7 +638,7 @@ function Cat4Table($conn, $count) {
 
 function Cat5Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -648,6 +657,7 @@ function Cat5Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -665,7 +675,7 @@ function Cat5Table($conn, $count) {
 
 function Cat6Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -684,6 +694,7 @@ function Cat6Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -701,7 +712,7 @@ function Cat6Table($conn, $count) {
 
 function Cat7Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -720,6 +731,7 @@ function Cat7Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -737,7 +749,7 @@ function Cat7Table($conn, $count) {
 
 function Cat8Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -756,6 +768,7 @@ function Cat8Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -773,7 +786,7 @@ function Cat8Table($conn, $count) {
 
 function Cat9Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -792,6 +805,7 @@ function Cat9Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -809,7 +823,7 @@ function Cat9Table($conn, $count) {
 
 function Cat10Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -828,6 +842,7 @@ function Cat10Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -845,7 +860,7 @@ function Cat10Table($conn, $count) {
 
 function Cat11Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -864,6 +879,7 @@ function Cat11Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -881,7 +897,7 @@ function Cat11Table($conn, $count) {
 
 function Cat12Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -900,7 +916,7 @@ function Cat12Table($conn, $count) {
       ?>
 
         <tr>
-          <td><?php echo $row['a_name'] ;?></td>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
           <td><?php echo $row['a_person_incharge'] ;?></td>
@@ -917,7 +933,7 @@ function Cat12Table($conn, $count) {
 
 function Cat13Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -936,6 +952,7 @@ function Cat13Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -953,7 +970,7 @@ function Cat13Table($conn, $count) {
 
 function Cat14Table($conn, $count) {
 
-    $sql = "SELECT a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
+    $sql = "SELECT access_id, a_name, ct.cat_name, lc.loc_name, a_person_incharge, a_effectivty_date, dt.dept_name
             	FROM `assets` ac
                 	JOIN asset_cat i
                     ON ac.ac_id = i.ac_id
@@ -972,6 +989,7 @@ function Cat14Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
           <td><?php echo $row['loc_name'] ;?></td>
@@ -989,7 +1007,7 @@ function Cat14Table($conn, $count) {
 
 function loc1Table($conn, $count) {
 
-    $sql = "SELECT a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
+    $sql = "SELECT access_id, a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
                   FROM `assets` ac
                       JOIN `asset_cat` i
                       ON ac.ac_id = i.ac_id
@@ -1008,6 +1026,7 @@ function loc1Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['ac_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
@@ -1025,7 +1044,7 @@ function loc1Table($conn, $count) {
 
 function loc2Table($conn, $count) {
 
-    $sql = "SELECT a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
+    $sql = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
                   FROM `assets` ac
                       JOIN `asset_cat` i
                       ON ac.ac_id = i.ac_id
@@ -1044,6 +1063,7 @@ function loc2Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['ac_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
@@ -1061,7 +1081,7 @@ function loc2Table($conn, $count) {
 
 function loc3Table($conn, $count) {
 
-    $sql = "SELECT a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
+    $sql = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
                   FROM `assets` ac
                       JOIN `asset_cat` i
                       ON ac.ac_id = i.ac_id
@@ -1080,6 +1100,7 @@ function loc3Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['ac_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
@@ -1097,7 +1118,7 @@ function loc3Table($conn, $count) {
 
 function loc4Table($conn, $count) {
 
-    $sql = "SELECT a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
+    $sql = "SELECT access_id, a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
                   FROM `assets` ac
                       JOIN `asset_cat` i
                       ON ac.ac_id = i.ac_id
@@ -1116,6 +1137,7 @@ function loc4Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['ac_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
@@ -1133,7 +1155,7 @@ function loc4Table($conn, $count) {
 
 function loc5Table($conn, $count) {
 
-    $sql = "SELECT a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
+    $sql = "SELECT access_id, a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
                   FROM `assets` ac
                       JOIN `asset_cat` i
                       ON ac.ac_id = i.ac_id
@@ -1152,6 +1174,7 @@ function loc5Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['ac_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
@@ -1169,7 +1192,7 @@ function loc5Table($conn, $count) {
 
 function loc6Table($conn, $count) {
 
-    $sql = "SELECT a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
+    $sql = "SELECT access_id, a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
                   FROM `assets` ac
                       JOIN `asset_cat` i
                       ON ac.ac_id = i.ac_id
@@ -1188,6 +1211,7 @@ function loc6Table($conn, $count) {
       ?>
 
         <tr>
+          <td><?php echo $row['access_id'] ;?></td>
           <td><?php echo $row['a_name'] ;?></td>
           <td><?php echo $row['ac_name'] ;?></td>
           <td><?php echo $row['cat_name'] ;?></td>
