@@ -6,8 +6,8 @@ if (isset($_POST['submit'])) {
 
   include_once 'conn.php';
 
-$username = $_POST['username'];
-$pwd = $_POST['pwd'];
+$username = mysqli_real_escape_string($conn, $_POST['username']);
+$pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
 
 if (empty($username) || empty($pwd)) {
   header("location: ../index.php?error=emptyinputs");
@@ -21,14 +21,16 @@ if (empty($username) || empty($pwd)) {
       header("location: ../index.php?error=unknownuser");
       exit();
     } else {
-      if ($row = mysqli_fetch_assoc($result)) {
-        $decodeHashedPwd = password_verify($pass, $row['u_password']);
 
-        if ($decodeHashedPwd == false) {
+      if ($row = mysqli_fetch_assoc($result)) {
+
+        $pwd1 = password_verify($pwd, $row['u_password']);
+
+        if ($pwd1 == false) {
           header("location: ../index.php?error=signin");
           exit();
         }
-        elseif ($decodeHashedPwd == true) {
+        elseif ($pwd1 == true) {
           // Log in user here
           $_SESSION['user_uid']      = $row['u_id'];
           $_SESSION['user_name']     = $row['u_name'];

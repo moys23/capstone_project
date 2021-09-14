@@ -19,7 +19,7 @@ include_once "conn.php";
       header("location: ../AdminPage/index.php?error=emptyinputs");
       exit();
     }else { //CHECK IF INPUT CHARACTERS ARE VALID
-      if (!preg_match("/^[a-zA-Z @&$]*$/", $name) || !preg_match("/^[a-zA-Z @&$]*$/", $address)) {
+      if (!preg_match('/^[a-zA-Z0-9,\.\s]*$/', $name) || !preg_match('/^[a-zA-Z0-9,\.\s]*$/', $address)) {
         header("location: ../AdminPage/index.php?error=invalidchar");
         exit();
       }else {//CHECK IF EMAIL IS VALID
@@ -51,9 +51,10 @@ include_once "conn.php";
                   exit();
                 }
                 else {
+                  $HashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-                //INSERT THE USER INTO THE DATABASE
-                $sql = "INSERT INTO user (u_name, u_address, u_email, u_username, u_password, u_usertype) VALUES ('$name', '$address', '$email' , '$username', '$pwd2', '$cat') ;";
+                  //INSERT THE USER INTO THE DATABASE
+                  $sql = "INSERT INTO user (u_name, u_address, u_email, u_username, u_password, u_usertype) VALUES ('$name', '$address', '$email' , '$username', '$HashedPwd', '$cat') ;";
 
                 mysqli_query($conn, $sql);
                 header("location: ../AdminPage/index.php?registered");
