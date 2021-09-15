@@ -207,7 +207,7 @@
 
                                        <?php
 
-                                         echo dwnloadQR($conn, $_SESSION['user_uid']);
+                                         echo updateBTN($conn, $_SESSION['user_uid']);
 
                                        ?>
 
