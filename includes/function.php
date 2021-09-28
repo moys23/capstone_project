@@ -1,5 +1,5 @@
 <?php
-// 
+//
 // function dwnloadQR($conn, $count){
 //     if (isset($_GET['DLbtn'])) {
 //       $itemQR = $_GET['itemCode'];
@@ -13,6 +13,26 @@
 // }
 
 
+function updateBTNshow($conn, $count){
+
+  if (isset($_POST['processUPDATE'])) {
+    // $data = $row['access_id'];
+    // $data2 = $row['a_id'];
+
+    $num1 = $_POST['num1'];
+    $num2 = $_POST['num2'];
+    $num3 = $_POST['num3'];
+    $num4 = $_POST['num4'];
+    $num5 = $_POST['num5'];
+
+    // $sql = "UPDATE `assets` SET `a_name` = '$num1', `a_person_incharge` = '$num2',   `loc_id` = $num3, `cat_id` = $num4, `dept_id` = $num5 WHERE a_id = '$data2' OR access_id = '$data';";
+    // $result = mysqli_query($conn, $sql);
+  }
+
+
+
+}
+
 function updateBTN($conn, $count){
 
   if (isset($_POST['processUPDATE'])) {
@@ -24,7 +44,7 @@ function updateBTN($conn, $count){
     $num4 = $_POST['num4'];
     $num5 = $_POST['num5'];
 
-    $sql = "UPDATE `assets` SET `a_name` = '$num1', `a_person_incharge` = '$num2',   `loc_id` = $num3, `cat_id` = $num4, `dept_id` = $num5 WHERE a_id = '$data' OR access_id = '$data';";
+    $sql = "UPDATE `assets` SET `a_name` = '$num1', `a_person_incharge` = '$num2',   `loc_id` = $num3, `cat_id` = $num4, `dept_id` = $num5 WHERE a_id = '$data' OR access_id LIKE '$data';";
     $result = mysqli_query($conn, $sql);
   }
 

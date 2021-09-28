@@ -113,20 +113,21 @@
                   // $linkpage = 'https://10.0.0.36/capstone_project/qrCodes.php?ID=' . $ASSname;
 
                   // echo "<img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl= $linkpage' class='card-img-top'>";
-                     echo "<div class='row'>
+                  ?>
+                     <div class='row'>
                             <div class='col-sm-4'></div>
                              <div class='col-sm-4 justify-content-center'>
                                <div class='card '>
                                  <img src='https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl= $linkpage' class='card-img-top'>
                                  <div class='card-body'>
-                                   <div class='card-text text-center'>$itemCode</div>
+                                   <div class='card-text text-center'><?php echo $itemCode; ?></div>
                                  </div>
                                </div>
                                <button onclick='window.print()' class='btn btn-outline-success'>Print</button>
                               </div>
                               <div class='col-sm-4'></div>
-                            </div>";
-                  ?>
+                            </div>
+
 
 
 

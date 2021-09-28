@@ -1,6 +1,6 @@
 
-  <button class="btn blue m-1 shadow border rounded text-light border-1 position-fixed" data-toggle="modal" data-target="#addUsers"style="transform: translateY(40px);">
-    <i class="bi bi-person-plus-fill" ></i>
+  <button id="navHover4" class="btn blue m-1 shadow border rounded text-light border-1 position-fixed" data-toggle="modal" data-target="#addUsers"style="transform: translateY(40px);">
+    <i class="bi bi-person-plus-fill" ></i> Add Users
   </button>
 
   <div class="modal fade" id="addUsers" tabindex="-1" role="dialog" aria-labelledby="addUsersLabel" aria-hidden="true">

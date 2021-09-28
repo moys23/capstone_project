@@ -1,5 +1,5 @@
-<button class="btn blue m-1 shadow border rounded text-light border-1 position-fixed" data-toggle="modal" data-target="#SearchIcon">
-  <i class="bi bi-search"></i>
+<button id="navHover3" class="btn blue m-1 shadow border rounded text-light border-1 position-fixed" data-toggle="modal" data-target="#SearchIcon">
+  <i class="bi bi-search"></i> Search
 </button>
 
 <div class="modal fade" id="SearchIcon" tabindex="-1" role="dialog" aria-labelledby="SearchIconLabel" aria-hidden="true">
@@ -20,7 +20,7 @@
            </div>
          </form>
 
-         <?php// echo searchResult($conn, $_SESSION['user_uid']) ?>
+         <?php // echo searchResult($conn, $_SESSION['user_uid']) ?>
 
        </div>
        </div>

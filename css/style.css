@@ -1,3 +1,109 @@
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printTable, .printTable * {
+    visibility: visible;
+  }
+  .printTable {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+}
+
+
+#navHover1 {
+  width: 41px;
+  height: 41px;
+  transform: translateY(80px); 
+  padding: 8px 12px 8px 13px;
+  transition: width 1s; 
+  text-align: left;
+  overflow: hidden;
+  -webkit-transition: width 0.3s ease-in-out;
+  -moz-transition: width 0.3s ease-in-out;
+  -o-transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+}
+
+#navHover1:hover{
+  white-space: nowrap;  
+  width: 130px;
+}
+
+#navHover2 {
+  width: 41px;
+  height: 41px;
+  transform: translateY(80px); 
+  padding: 8px 12px 8px 13px;
+  transition: width 1s; 
+  text-align: left;
+  overflow: hidden;
+  -webkit-transition: width 0.3s ease-in-out;
+  -moz-transition: width 0.3s ease-in-out;
+  -o-transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+}
+
+#navHover2:hover {
+  white-space: nowrap;  
+  width: 120px;
+}
+
+#navHover2 {
+  width: 41px;
+  height: 41px;
+  transform: translateY(80px); 
+  padding: 8px 12px 8px 13px;
+  transition: width 1s; 
+  text-align: left;
+  overflow: hidden;
+  -webkit-transition: width 0.3s ease-in-out;
+  -moz-transition: width 0.3s ease-in-out;
+  -o-transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+}
+
+#navHover2:hover {
+  white-space: nowrap;  
+  width: 120px;
+}
+
+#navHover3 {
+  width: 40px;
+  height: 39px;
+  transition: width 1s; 
+  text-align: left;
+  overflow: hidden;
+  -webkit-transition: width 0.3s ease-in-out;
+  -moz-transition: width 0.3s ease-in-out;
+  -o-transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+}
+
+#navHover3:hover {
+  white-space: nowrap;  
+  width: 120px;
+}
+
+#navHover4 {
+  width: 40px;
+  height: 38px;
+  transition: width 1s; 
+  text-align: left;
+  overflow: hidden;
+  -webkit-transition: width 0.3s ease-in-out;
+  -moz-transition: width 0.3s ease-in-out;
+  -o-transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+}
+
+#navHover4:hover {
+  white-space: nowrap;  
+  width: 120px;
+}
+
 .size1 {
   font-size: 11px;
 }
@@ -15,10 +121,30 @@
   width: 135px;
 }
 
+.search-sticky2 {
+  /* Scrollable contents */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  top: 0;
+  height: calc(140px - 48px);
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
 .search-sticky {
   /* Scrollable contents */
     top: 0;
     height: calc(250px - 48px);
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.table-sticky3 {
+  /* Scrollable contents */
+    top: 0;
+    height: calc(520px - 48px);
     overflow-x: auto;
     overflow-y: auto;
 }

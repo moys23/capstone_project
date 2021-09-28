@@ -32,7 +32,7 @@
       .vh50 {
         height: 140px;
       }
-      }
+      
       .vh25{
         height: 60px;
       }
@@ -120,7 +120,7 @@
                                   ON ac.dept_id = dt.dept_id
                                   JOIN `location` lc
                                   ON ac.loc_id = lc.loc_id
-                                    WHERE a_id = '$ID' OR
+                                    WHERE a_id ='$ID' OR
                                       access_id LIKE '$ID' ;";
                     $query_run = mysqli_query($conn, $query);
                     $result = mysqli_num_rows($query_run);

@@ -32,7 +32,7 @@
       .vh50 {
         height: 140px;
       }
-      }
+      
       .vh25{
         height: 60px;
       }

@@ -1,5 +1,5 @@
-<button class="btn blue m-1 shadow border rounded text-light border-1 position-fixed" data-toggle="modal" data-target="#updateData"  style="transform: translateY(124px); padding: 7px 9px 8px 12px;">
-  <i class="fas fa-edit" ></i>
+<button id="navHover2" class="btn blue m-1 shadow border rounded text-light border-1 position-fixed" data-toggle="modal" data-target="#updateData"  style="transform: translateY(124px); padding: 7px 9px 8px 12px;">
+  <i class="fas fa-edit" ></i> &nbsp; Update
 </button>
 
   <div class="modal fade" id="updateData" tabindex="-1" role="dialog" aria-labelledby="SearchIconLabel" aria-hidden="true">

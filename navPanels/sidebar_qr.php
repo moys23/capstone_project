@@ -1,5 +1,5 @@
-<button class="btn blue m-1 shadow border rounded text-light border-1 position-fixed" data-toggle="modal" data-target="#createQR"  style="transform: translateY(80px); padding: 8px 12px 8px 13px;">
-  <i class="fas fa-qrcode" ></i>
+<button id="navHover1" class="btn blue m-1 shadow border rounded text-light border-1 position-fixed" data-toggle="modal" data-target="#createQR">
+  <i class="fas fa-qrcode" ></i>&nbsp;  Add Asset
 </button>
 
 <div class="modal fade" id="createQR" tabindex="-1" role="dialog" aria-labelledby="createQRLabel" aria-hidden="true">
