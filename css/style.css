@@ -12,6 +12,10 @@
   }
 }
 
+body:-webkit-full-screen {
+  visibility: visible;
+}
+
 
 #navHover1 {
   width: 41px;
