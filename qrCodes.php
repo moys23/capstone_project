@@ -92,7 +92,7 @@
                           <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['a_person_incharge'] ;?></h6></td>
                         </tr>
                         <tr>
-                          <td><h6>Released Date:</h6></td>
+                          <td><h6>Date Acquired:</h6></td>
                           <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['a_effectivty_date'] ;?></h6></td>
                         </tr>
                         <tr>

@@ -35,6 +35,6 @@ include_once "conn.php";
 
   }
   else {
-    header("location: ../AdminPage/index.php");
+    header("location: ../AdminPage/index.php?error");
     exit();
   }

@@ -89,27 +89,45 @@
         </div>
       </div>
 
-      <div class="container-fluid mt-2" style="padding-left: 55px; ">
-        <div class="border border-dark table-sticky">
-          <table class="table text-center">
-            <thead class="text-light size1 bg-primary">
-              <tr>
-                <th class="border-bottom border-dark">Asset Code</th>
-                <th class="border-bottom border-dark">Name</th>
-                <th class="border-bottom border-dark">Asset Category</th>
-                <th class="border-bottom border-dark">Room Type</th>
-                <th class="border-bottom border-dark">Location</th>
-                <th class="border-bottom border-dark">Personnel Incharge</th>
-                <th class="border-bottom border-dark">Released Date</th>
-                <th class="border-bottom border-dark">Department</th>
-              </tr>
-            </thead>
-            <tbody class="size1">
-                <?php echo dataTable($conn, $_SESSION['user_uid']) ?>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <div class="container-fluid mt-2 mb-2" style="padding-left: 55px; ">
+    <!-- <a href="../DataTables/printpage.php" class="btn btn-success border border-dark size1 mb-1">Generate Report</a> -->
+    <div class="border border-dark table-sticky3">
+      <table class="table text-center">
+      <thead class="text-light size1 bg-primary">
+          <tr>
+            <th class=" border-bottom border-dark">PROPERTY NUMBER</th>
+            <th class=" border-bottom border-dark">ARTICLE</th>
+            <th class=" border-bottom border-dark">DESCRIPTION</th>
+            <th class=" border-bottom border-dark">DATE ACQUIRED</th>
+            <!-- <th class=" border-bottom border-dark">PROPERTY NUMBER</th> -->
+            <th class=" border-bottom border-dark">UNIT OF MEASURES</th>
+            <th class=" border-bottom border-dark">UNIT VALUE</th>
+            <th class=" border-bottom border-dark">TOTAL AMOUNT</th>
+            <th class=" border-bottom border-dark">QUANTITY PER</th>
+            <th class=" border-bottom border-dark">QUANTITY PER PHYSICAL</th>
+            <!-- <th class=" border-bottom border-dark">
+              SHORTAGE/OVERAGE
+              <table>
+                <tr class="">
+                  <span>Quantity</span>
+                 <span>Value</span>
+                </tr>
+              </table>
+            </th> -->
+            <th class="border-bottom border-dark">ASSET CATEGORY</th>
+            <th class=" border-bottom border-dark">ROOM TYPE</th>
+            <th class=" border-bottom border-dark">LOCATION</th>
+            <th class=" border-bottom border-dark">PERSONNEL IN CHARGE</th>
+            <th class=" border-bottom border-dark">DEPARTMENT</th>
+            <th class=" border-bottom border-dark">REMARKS</th>
+          </tr>
+        </thead>
+        <tbody class="size1">
+          <?php echo dataTable($conn, $_SESSION['user_uid']) ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 
 

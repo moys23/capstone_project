@@ -36,11 +36,11 @@ include_once '../includes/URLhandler.php';
     <div class="row justify-content-center">
       <div class="container py-1">
         <h4 class="bg-info p-2 mt-2 text-center border border-dark">
-          <strong><big>BUPCSO Assets Inventory</big></strong>
+          <strong><big>Generate Inventory Assets</big></strong>
         </h4>
         <div class="col-8 text-center" style="margin: auto;">
           <h6>
-            <strong>Total Registered Assets</strong>
+            <strong></strong>
           </h6>
           <!-- <div class="card border border-dark text-dark">
             <div class="card-body">
@@ -64,29 +64,46 @@ include_once '../includes/URLhandler.php';
           <div class="row justify-content-center">
             <div class="col-11" style="padding-right: 2px; padding-left: 12px;">
               <select name="printOption" class="form-select border  border-dark " required>
-                <option>Category</option>
-                <option value='d1'>CSD Department</option>
-                <option value='d2'>EDUC Department</option>
-                <option value='1'>Armed-chair</option>
-                <option value='2'>Table</option>
-                <option value="3">Electric Fan</option>
-                <option value="4">Curtain</option>
-                <option value="5">Monoblock Chair</option>
-                <option value="6">Graph Board</option>
-                <option value="7">Monitor</option>
-                <option value="8">Printer</option>
-                <option value="9">AVR</option>
-                <option value="10">System Unit</option>
-                <option value="11">Keyboard</option>
-                <option value="12">Mouse</option>
-                <option value="13">Switch</option>
-                <option value="14">Projector</option>
-                <option value="15">SB-1</option>
-                <option value="16">SB-2</option>
-                <option value="17">SB-3</option>
-                <option value="18">ECB-15</option>
-                <option value="19">ECB-16</option>
-                <option value="20">ECB-17</option>
+                <option>-- Category --</option>
+                <?php
+                $room = "SELECT * FROM `location` ;";
+                $ask = mysqli_query($conn, $room);
+                $show = mysqli_num_rows($ask);
+
+                while ($row = mysqli_fetch_assoc($ask)) {
+                ?>
+                  <option value="<?php echo $row['loc_name'] ?>"><?php echo $row['loc_name'] ?></option>
+                <?php
+                }
+                ?>
+
+                <?php
+
+                $data = "SELECT * FROM category ;";
+                $resultdata = mysqli_query($conn, $data);
+                $dataFetch = mysqli_num_rows($resultdata);
+
+                while ($room = mysqli_fetch_assoc($resultdata)) { ?>
+
+                  <option value="<?php echo $room['cat_name'] ?>"><?php echo $room['cat_name'] ?></option>
+
+                <?php
+                }
+
+                ?>
+                <?php
+                $dept = "SELECT * FROM `department` ;";
+                $asked = mysqli_query($conn, $dept);
+                $show = mysqli_num_rows($asked);
+
+                while ($data = mysqli_fetch_assoc($asked)) {
+                ?>
+                  <option value="<?php echo $data['dept_name'] ?>"><?php echo $data['dept_name'] ?></option>
+                <?php
+                }
+                ?>
+                <option value="Disposed">Disposed</option>
+
               </select>
             </div>
             <div class="col-1" style="padding-left: 0;">
@@ -106,774 +123,121 @@ include_once '../includes/URLhandler.php';
       <table class="table printTable  text-center">
         <thead class="text-light size1 bg-primary">
           <tr>
-            <th class="border-bottom border-dark">Asset Code</th>
-            <th class="border-bottom border-dark">Name</th>
-            <th class="border-bottom border-dark">Asset Category</th>
-            <th class="border-bottom border-dark">Room Type</th>
-            <th class="border-bottom border-dark">Location</th>
-            <th class="border-bottom border-dark">Personnel Incharge</th>
-            <th class="border-bottom border-dark">Released Date</th>
-            <th class="border-bottom border-dark">Department</th>
+            <th class=" border-bottom border-dark">PROPERTY NUMBER</th>
+            <th class=" border-bottom border-dark">ARTICLE</th>
+            <th class=" border-bottom border-dark">DESCRIPTION</th>
+            <th class=" border-bottom border-dark">DATE ACQUIRED</th>
+            <!-- <th class=" border-bottom border-dark">PROPERTY NUMBER</th> -->
+            <th class=" border-bottom border-dark">UNIT OF MEASURES</th>
+            <th class=" border-bottom border-dark">UNIT VALUE</th>
+            <th class=" border-bottom border-dark">TOTAL AMOUNT</th>
+            <th class=" border-bottom border-dark">QUANTITY PER</th>
+            <th class=" border-bottom border-dark">QUANTITY PER PHYSICAL</th>
+            <!-- <th class=" border-bottom border-dark">
+              SHORTAGE/OVERAGE
+              <table>
+                <tr class="">
+                  <td>Quantity</td>
+                  <td>Value</td>
+                </tr>
+              </table>
+                 <span>Quantity</span> -->
+            <!-- <span>Value</span> -->
+            <!-- </th> -->
+            <th class="border-bottom border-dark">ASSET CATEGORY</th>
+            <th class=" border-bottom border-dark">ROOM TYPE</th>
+            <th class=" border-bottom border-dark">LOCATION</th>
+            <th class=" border-bottom border-dark">PERSONNEL IN CHARGE</th>
+            <th class=" border-bottom border-dark">DEPARTMENT</th>
+            <th class=" border-bottom border-dark">REMARKS</th>
           </tr>
         </thead>
         <tbody class="size1">
-          <?php
 
+          <?php
 
           if (isset($_POST['gSeek'])) {
 
             $print = $_POST['printOption'];
 
+            $sql = "SELECT  *
+                      FROM `assets` ac
+                        JOIN `asset_cat` i
+                        ON ac.ac_id = i.ac_id
+                        JOIN `category` ct
+                        ON ac.cat_id = ct.cat_id
+                        JOIN `department` dt
+                        ON ac.dept_id = dt.dept_id
+                        JOIN `location` lc
+                        ON ac.loc_id = lc.loc_id
+                          WHERE ac.a_name LIKE '$print'
+                            OR i.ac_name LIKE '$print'
+                            OR ct.cat_name LIKE '$print'
+                            OR dt.dept_name LIKE '$print'
+                            OR lc.loc_name LIKE '$print'
+                            OR ac.remarks LIKE '$print'
+                            ORDER BY a_id DESC ;";
+            $result = mysqli_query($conn, $sql);
 
-            if ($print == "d1") {
 
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE dt.dept_id = '1';";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
+            while ($row = mysqli_fetch_assoc($result)) {
           ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
+              <tr>
+                <td><?php echo $row['access_id']; ?></td>
+                <td><?php echo $row['article']; ?></td>
+                <td><?php echo $row['a_name']; ?></td>
+                <td><?php echo $row['a_effectivty_date']; ?></td>
+                <td><?php echo $row['u_measure']; ?></td>
+                <td><?php echo $row['u_value']; ?></td>
+                <td><?php echo $row['total_amount']; ?></td>
+                <td><?php echo $row['qty_per']; ?></td>
+                <td><?php echo $row['qty_per_phy']; ?></td>
+                <td><?php echo $row['ac_name']; ?></td>
+                <td><?php echo $row['cat_name']; ?></td>
+                <td><?php echo $row['loc_name']; ?></td>
+                <td><?php echo $row['a_person_incharge']; ?></td>
+                <td><?php echo $row['dept_name']; ?></td>
+                <td><?php echo $row['remarks']; ?></td>
+              </tr>
+              <?php
+            }
 
+          //   if ($print = "Disposed") {
+          //     $data = "SELECT *
+          //               FROM `assets` ac
+          //                 JOIN `asset_cat` i
+          //                 ON ac.ac_id = i.ac_id
+          //                 JOIN `category` ct
+          //                 ON ac.cat_id = ct.cat_id
+          //                 JOIN `department` dt
+          //                 ON ac.dept_id = dt.dept_id
+          //                 JOIN `location` lc
+          //                 ON ac.loc_id = lc.loc_id 
+          //                   WHERE remarks = 'Disposed';";
+          //     $go = mysqli_query($conn, $data);
+
+          //     while ($fetch = mysqli_fetch_assoc($go)) {
+          //     ?>
+                 <!-- <tr>
+          //         <td><?php //echo $fetch['access_id']; ?></td>
+          //         <td><?php //echo $fetch['article']; ?></td>
+          //         <td><?php //echo $fetch['a_name']; ?></td>
+          //         <td><?php //echo $fetch['a_effectivty_date']; ?></td>
+          //         <td><?php //echo $fetch['u_measure']; ?></td>
+          //         <td><?php //echo $fetch['u_value']; ?></td>
+          //         <td><?php //echo $fetch['total_amount']; ?></td>
+          //         <td><?php //echo $fetch['qty_per']; ?></td>
+          //         <td><?php //echo $fetch['qty_per_phy']; ?></td>
+          //         <td><?php //echo $fetch['ac_name']; ?></td>
+          //         <td><?php //echo $fetch['cat_name']; ?></td>
+          //         <td><?php //echo $fetch['loc_name']; ?></td>
+          //         <td><?php //echo $fetch['a_person_incharge']; ?></td>
+          //         <td><?php //echo $fetch['dept_name']; ?></td>
+          //         <td><?php //echo $fetch['remarks']; ?></td>
+          //       </tr> -->
           <?php
-
-              }
-            }
-            if ($print == "d2") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE dt.dept_id = '2';";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "1") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 1;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "2") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 2;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "3") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 3;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "4") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 4;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "5") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 6;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "6") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 6;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "7") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 7;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "8") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 8;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "9") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 9;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "10") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 10;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "11") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-              FROM `assets` ac
-                  JOIN `asset_cat` i
-                  ON ac.ac_id = i.ac_id
-                  JOIN `category` ct
-                  ON ac.cat_id = ct.cat_id
-                  JOIN `department` dt
-                  ON ac.dept_id = dt.dept_id
-                  JOIN `location` lc
-                  ON ac.loc_id = lc.loc_id
-                  WHERE i.ac_id = 11;";
-          $result = mysqli_query($conn, $sqldata);
-          $resultCheck = mysqli_num_rows($result);
-
-          while ($row = mysqli_fetch_assoc($result)) {
-
-
-      ?>
-            <tr>
-              <td><?php echo $row['access_id']; ?></td>
-              <td><?php echo $row['a_name']; ?></td>
-              <td><?php echo $row['ac_name']; ?></td>
-              <td><?php echo $row['cat_name']; ?></td>
-              <td><?php echo $row['loc_name']; ?></td>
-              <td><?php echo $row['a_person_incharge']; ?></td>
-              <td><?php echo $row['a_effectivty_date']; ?></td>
-              <td><?php echo $row['dept_name']; ?></td>
-            </tr>
-
-      <?php
-
-          }
-            }
-            if ($print == "12") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 12;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "13") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 13;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "14") {
-              $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      WHERE i.ac_id = 14;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "15") {
-              $sql = "SELECT access_id, a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      	WHERE lc.loc_id = 1;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "16") {
-              $sql = "SELECT access_id, a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      	WHERE lc.loc_id = 2;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "17") {
-              $sql = "SELECT access_id, a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      	WHERE lc.loc_id = 3;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "18") {
-              $sql = "SELECT access_id, a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      	WHERE lc.loc_id = 4;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "19") {
-              $sql = "SELECT access_id, a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      	WHERE lc.loc_id = 5;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
-            if ($print == "20") {
-              $sql = "SELECT access_id, a_name,  i.ac_name, ct.cat_name, dt.dept_name, a_person_incharge, a_effectivty_date
-                  FROM `assets` ac
-                      JOIN `asset_cat` i
-                      ON ac.ac_id = i.ac_id
-                      JOIN `category` ct
-                      ON ac.cat_id = ct.cat_id
-                      JOIN `department` dt
-                      ON ac.dept_id = dt.dept_id
-                      JOIN `location` lc
-                      ON ac.loc_id = lc.loc_id
-                      	WHERE lc.loc_id = 6;";
-              $result = mysqli_query($conn, $sqldata);
-              $resultCheck = mysqli_num_rows($result);
-
-              while ($row = mysqli_fetch_assoc($result)) {
-
-
-          ?>
-                <tr>
-                  <td><?php echo $row['access_id']; ?></td>
-                  <td><?php echo $row['a_name']; ?></td>
-                  <td><?php echo $row['ac_name']; ?></td>
-                  <td><?php echo $row['cat_name']; ?></td>
-                  <td><?php echo $row['loc_name']; ?></td>
-                  <td><?php echo $row['a_person_incharge']; ?></td>
-                  <td><?php echo $row['a_effectivty_date']; ?></td>
-                  <td><?php echo $row['dept_name']; ?></td>
-                </tr>
-
-          <?php
-
-              }
-            }
+          //     }
+          //   }
           } else {
             echo dataTable($conn, $_SESSION['user_uid']);
           }

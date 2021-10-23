@@ -12,6 +12,187 @@
 //
 // }
 
+function createDept($conn, $count){
+  
+  if (isset($_POST['create1'])) {
+    $data1 = htmlentities($_POST['detail1']);
+    $data2 = htmlentities($_POST['code1']);
+    $data3 = htmlentities($_POST['status1']);
+    $data4 = htmlentities($_POST['date']);
+
+
+    if (empty($data1) || empty($data2) || empty($data3)) {
+      echo "<div class='alert alert-danger mt-1 rounded' role='alert'><i class='bi bi-exclamation-triangle-fill'></i>&nbsp<strong>Warning!</strong> Empty Inputs.
+            <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button></div>";
+    }else {
+      $sql = "SELECT * FROM department WHERE dept_name = '$data1' ;";
+      $ask = mysqli_query($conn, $sql);
+      $result = mysqli_num_rows($ask);
+
+      if ($result > 0) {
+        echo "<div class='alert alert-danger mt-1 rounded' role='alert'><strong>Request denied!</strong> Department already exist.
+            <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button></div>";
+      } else {
+        $sql = "INSERT INTO department (dept_name, dept_link, date_efc, dept_status) VALUES ('$data1', '$data2', '$data4', '$data3');";
+        mysqli_query($conn, $sql);
+    
+        echo "<div class='alert alert-success mt-1 rounded' role='alert'><strong>Request confirmed!</strong>
+            <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button></div>";
+
+      }
+    } 
+  } 
+  
+  if (isset($_POST['create2'])) {
+    $data1 = htmlentities($_POST['detail2']);
+    $data2 = htmlentities($_POST['status2']);
+    $data3 = htmlentities($_POST['date1']);
+
+    
+      
+
+      if (empty($data1) || empty($data2)) {
+        echo "<div class='alert alert-danger mt-1 rounded' role='alert'><i class='bi bi-exclamation-triangle-fill'></i>&nbsp<strong>Warning!</strong> Empty Inputs.
+              <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+              </button></div>";
+      }else {
+        $sql = "SELECT * FROM asset_cat WHERE ac_name = '$data1' ;";
+        $ask = mysqli_query($conn, $sql);
+        $result = mysqli_num_rows($ask);
+
+        if ($result > 0) {
+          echo "<div class='alert alert-danger mt-1 rounded' role='alert'><strong>Request denied!</strong> Asset Category already exist.
+              <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+              </button></div>";
+        } else {
+          $sql = "INSERT INTO asset_cat (ac_name, effective_date, ac_status) VALUES ('$data1', '$data3', '$data2');";
+          mysqli_query($conn, $sql);
+
+          echo "<div class='alert alert-success mt-1 rounded' role='alert'><strong>Request confirmed!</strong>
+            <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button></div>";
+
+      }
+    } 
+  }
+  
+  if (isset($_POST['create3'])) {
+    $data1 = htmlentities($_POST['detail3']);
+    $data2 = htmlentities($_POST['status3']);
+    $data3 = htmlentities($_POST['date2']);
+
+    
+      
+
+      if (empty($data1) || empty($data2)) {
+        echo "<div class='alert alert-danger mt-1 rounded' role='alert'><i class='bi bi-exclamation-triangle-fill'></i>&nbsp<strong>Warning!</strong> Empty Inputs.
+              <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+              </button></div>";
+      }else {
+        $sql = "SELECT * FROM  `location` WHERE loc_name = '$data1' ;";
+        $ask = mysqli_query($conn, $sql);
+        $result = mysqli_num_rows($ask);
+
+        if ($result > 0) {
+          echo "<div class='alert alert-danger mt-1 rounded' role='alert'><strong>Request denied!</strong> Asset Category already exist.
+              <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+              </button></div>";
+        } else {
+          $sql = "INSERT INTO `location` (loc_name, efc_date, loc_status) VALUES ('$data1', '$data3', '$data2');";
+          mysqli_query($conn, $sql);
+
+          echo "<div class='alert alert-success mt-1 rounded' role='alert'><strong>Request confirmed!</strong>
+            <button type='button' class='close btn btn-transparent' style='float: right; padding-top: 0;' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span>
+            </button></div>";
+
+      }
+    } 
+
+  }
+
+}
+
+function dcCount($conn, $count){
+  
+  $a = "SELECT COUNT(remarks) FROM `assets` WHERE remarks = 'Disposed' ;";
+  $b = mysqli_query($conn, $a);
+  $c = mysqli_fetch_row($b);
+
+  if($c){
+      return $c[0];
+  }
+  else{
+      return 0;
+  }
+}
+
+function sumCount($conn, $count)
+{
+  $id = $_GET['ID'];
+  
+  $a = "SELECT count(dept_id) cnt FROM `assets` WHERE `dept_id` = '$id' AND remarks = 'Issued' ;";
+  $b = mysqli_query($conn, $a);
+  $c = mysqli_fetch_row($b);
+
+  if ($c) {
+    return $c[0];
+  } else {
+    return 0;
+  }
+}
+function locCount($conn, $count)
+{
+  $id = $_GET['ID'];
+  
+  $a = "SELECT count(dept_id) cnt FROM `assets` WHERE `loc_id` = '$id' AND remarks = 'Issued' ;";
+  $b = mysqli_query($conn, $a);
+  $c = mysqli_fetch_row($b);
+
+  if ($c) {
+    return $c[0];
+  } else {
+    return 0;
+  }
+}
+function catCount($conn, $count)
+{
+  $id = $_GET['ID'];
+  
+  $a = "SELECT count(dept_id) cnt FROM `assets` WHERE `ac_id` = '$id' AND remarks = 'Issued' ;";
+  $b = mysqli_query($conn, $a);
+  $c = mysqli_fetch_row($b);
+
+  if ($c) {
+    return $c[0];
+  } else {
+    return 0;
+  }
+}
+
+// function addDepartment($conn, $count){
+//   if (isset($_post['addDept'])) {
+  ?>
+    <!-- <div class="card">
+      <div class="card-body">
+        <input type="text" placeholder="Input name">
+      </div>
+    </div> -->
+  <?php
+//   }
+// }
+
 
 function updateBTNshow($conn, $count){
 
@@ -44,7 +225,7 @@ function updateBTN($conn, $count){
     $num4 = $_POST['num4'];
     $num5 = $_POST['num5'];
 
-    $sql = "UPDATE `assets` SET `a_name` = '$num1', `a_person_incharge` = '$num2',   `loc_id` = $num3, `cat_id` = $num4, `dept_id` = $num5 WHERE a_id = '$data' OR access_id LIKE '$data';";
+    $sql = "UPDATE `assets` SET `a_person_incharge` = '$num2',  `remarks` = '$num1', `loc_id` = $num3, `cat_id` = $num4, `dept_id` = $num5 WHERE a_id = '$data' OR access_id LIKE '$data';";
     $result = mysqli_query($conn, $sql);
   }
 
@@ -407,7 +588,7 @@ function totalECB17($conn, $count) {
 }
 
 function dataTable($conn, $count){
-    $sqldata = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
+    $sqldata = "SELECT *
                   FROM `assets` ac
                       JOIN `asset_cat` i
                       ON ac.ac_id = i.ac_id
@@ -417,6 +598,7 @@ function dataTable($conn, $count){
                       ON ac.dept_id = dt.dept_id
                       JOIN `location` lc
                       ON ac.loc_id = lc.loc_id
+                        WHERE remarks = 'Issued'
                         ORDER BY a_id DESC;";
     $result = mysqli_query($conn, $sqldata);
     $resultCheck = mysqli_num_rows($result);
@@ -426,15 +608,22 @@ function dataTable($conn, $count){
 
     ?>
         <tr>
-          <td><?php echo $row['access_id'] ;?></td>
-          <td><?php echo $row['a_name'] ;?></td>
-          <td><?php echo $row['ac_name'] ;?></td>
-          <td><?php echo $row['cat_name'] ;?></td>
-          <td><?php echo $row['loc_name'] ;?></td>
-          <td><?php echo $row['a_person_incharge'] ;?></td>
-          <td><?php echo $row['a_effectivty_date'] ;?></td>
-          <td><?php echo $row['dept_name'] ;?></td>
-        </tr>
+              <td><?php echo $row['access_id']; ?></td>
+              <td><?php echo $row['article']; ?></td>
+              <td><?php echo $row['a_name']; ?></td>
+              <td><?php echo $row['a_effectivty_date']; ?></td>
+              <td><?php echo $row['u_measure']; ?></td>
+              <td><?php echo $row['u_value']; ?></td>
+              <td><?php echo $row['total_amount']; ?></td>
+              <td><?php echo $row['qty_per']; ?></td>
+              <td><?php echo $row['qty_per_phy']; ?></td>
+              <td><?php echo $row['ac_name']; ?></td>
+              <td><?php echo $row['cat_name']; ?></td>
+              <td><?php echo $row['loc_name']; ?></td>
+              <td><?php echo $row['a_person_incharge']; ?></td>
+              <td><?php echo $row['dept_name']; ?></td>
+              <td><?php echo $row['remarks']; ?></td>
+         </tr>
 
 <?php
 
