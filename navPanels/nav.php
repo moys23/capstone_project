@@ -115,7 +115,7 @@
           <div class="dropdown-menu py-0" aria-labelledby="addItemDPmenu">
 
             <button class="dropdown-item text-dark" data-bs-toggle="collapse" data-bs-target="#newDept">+ Add New Department</button>
-            <div id="newDept" class="collapse  show">
+            <div id="newDept" class="collapse">
 
               <div class="card">
                 <div class="card-body">
@@ -131,7 +131,7 @@
                     <select name="status1" class="form-control-sm required border border-dark">
                       <option>STATUS</option>
                       <option value="ACTIVE">Existing</option>
-                      <option value="NEW">New</option>
+                      <option value="ACTIVE">New</option>
                     </select>
                     <div class="card-footer pt-1 p-0 border-0 bg-transparent text-end">
                       <button class="btn btn-primary text-end" name="create1">Save</button>
@@ -158,12 +158,13 @@
                     <select name="status2" class="form-control-sm required border border-dark">
                       <option>STATUS</option>
                       <option value="ACTIVE">Active</option>
-                      <option value="UNUSED">New</option>
+                      <option value="ACTIVE">New</option>
                     </select>
                     <div class="card-footer pt-1 p-0 border-0 bg-transparent text-end">
                       <button class="btn btn-primary text-end" name="create2">Save</button>
                     </div>
                   </form>
+                  <?php echo createCategory($conn, $_SESSION['user_uid']) ?>
                 </div>
               </div>
             </div>
@@ -184,12 +185,13 @@
                     <select name="status3" class="form-control-sm required border border-dark">
                       <option>STATUS</option>
                       <option value="ACTIVE">Existing</option>
-                      <option value="NEW">New</option>
+                      <option value="ACTIVE">New</option>
                     </select>
                     <div class="card-footer bg-transparent border-0 pt-1 p-0 text-end">
                       <button class="btn btn-primary text-end" name="create3">Save</button>
                     </div>
                   </form>
+                  <?php echo createRoom($conn, $_SESSION['user_uid']) ?>
                 </div>
               </div>
             </div>
@@ -216,11 +218,11 @@
             </a>
 
             <ul class="dropdown-menu text-small shadow" aria-labelledby="dpAccount">
-              <li><a class="dropdown-item text-dark" href="#">About</a></li>
-              <li><a class="dropdown-item text-dark" href="#">Profile</a></li>
-              <li>
+              <!-- <li><a class="dropdown-item text-dark" href="#">About</a></li>
+              <li><a class="dropdown-item text-dark" href="#">Profile</a></li> -->
+              <!-- <li>
                 <hr class="dropdown-divider">
-              </li>
+              </li> -->
               <li><a class="dropdown-item text-dark" href="../includes/logout.php">Sign out</a></li>
             </ul>
           </div>

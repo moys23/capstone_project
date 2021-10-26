@@ -97,6 +97,10 @@ if (isset($_GET['btnsubmit'])) {
   $total = mysqli_real_escape_string($conn, $_GET['totalAmount']);
   $qtyP1 = mysqli_real_escape_string($conn, $_GET['qtyPER']);
   $qtyP2 = mysqli_real_escape_string($conn, $_GET['qtyPerPhysical']);
+  $shrt1 = mysqli_real_escape_string($conn, $_GET['shrtQTY']);
+  $shrt2 = mysqli_real_escape_string($conn, $_GET['shrtVAL']);
+  $over1 = mysqli_real_escape_string($conn, $_GET['overQTY']);
+  $over2= mysqli_real_escape_string($conn, $_GET['overVAL']);
   $remarks = mysqli_real_escape_string($conn, $_GET['remarks']);
 
 
@@ -120,7 +124,7 @@ if (isset($_GET['btnsubmit'])) {
     } else {
 
       //INSERT THE USER INTO THE DATABASE
-      $sql = "INSERT INTO `assets` (access_id, article, a_name, a_effectivty_date, u_measure, u_value, total_amount, qty_per, qty_per_phy, ac_id, cat_id, loc_id, a_person_incharge, dept_id, remarks) VALUES ('$itemCode', '$article', '$ASSname', '$efcdate', '$measure', '$value', '$total', '$qtyP1', '$qtyP2', '$category', '$roomCat', '$location', '$incharge', '$deptCat', '$remarks') ;";
+      $sql = "INSERT INTO `assets` (access_id, article, a_name, a_effectivty_date, u_measure, u_value, total_amount, qty_per, qty_per_phy, short_qty, short_value, over_qty, over_value, ac_id, cat_id, loc_id, a_person_incharge, dept_id, remarks) VALUES ('$itemCode', '$article', '$ASSname', '$efcdate', '$measure', '$value', '$total', '$qtyP1', '$qtyP2', '$shrt1', '$shrt2', '$over1', '$over2', '$category', '$roomCat', '$location', '$incharge', '$deptCat', '$remarks') ;";
 
       mysqli_query($conn, $sql);
       // $linkpage = 'https://10.0.0.36/capstone_project/qrCodes.php?ID=' . $ASSname;
@@ -142,47 +146,8 @@ if (isset($_GET['btnsubmit'])) {
             </div>
           </div>
           <div class="card-footer text-center">
-            <!-- <button onclick='window.print()' class='btn btn-outline-success'>Print</button> -->
-            <form method="GET">
-              <input type="text" value="<?php echo $itemCode; ?>" name="code">
-            <button type="submit" name="download">Save</button>
-            </form>
-            <?php
-              if (isset($_GET['download'])) {
-                // $itemCode = mysqli_real_escape_string($conn, $_GET['itemCode']);
-                
-                
-                // $url = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=%20https://192.168.137.1/capstone_project/qrCodes.php?ID=' . $itemCode;
-                
-                // $imageName = "../images/" . uniqid() . ".jpg";
-
-                // $fh = fopen($imageName, "w") or die("ERROR OPENING $imageName");
-
-                // $ch = curl_init();
-                // curl_setopt($ch, CURLOPT_URL, $url);
-                // curl_setopt($ch, CURLOPT_FILE, $fh);
-
-                // curl_exec($ch);
-                // if (curl_errno($ch)) {
-                //   echo "ERROR" . curl_error($ch);
-                // } else {
-                //   $status = curl_getinfo($ch);
-                //   print_r($status);
-                // }
-                
-                // curl_close($ch);
-                // fclose($fh);
-
-                $code = $_POST['code'];
-
-                $source = "https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=%20https://192.168.137.1/capstone_project/qrCodes.php?ID=". $code;
-                $destination = "images.jpg";
-                file_put_contents($destination, file_get_contents($source));
-                echo "OK";
-              
-              }
-
-            ?>
+            <button onclick='window.print()' class='btn btn-outline-success'>Print</button>
+            
 
           </div>
         </div>

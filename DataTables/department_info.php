@@ -178,7 +178,7 @@ $id = $_GET['ID'];
             </div>
           </div>
         </div>
-        <div class="col-sm-4" id="donutchart" style="margin: auto;"></div>
+        <!-- <div class="col-sm-4" id="donutchart" style="margin: auto;"></div> -->
       </div>
     </div>
   </div>
@@ -201,17 +201,10 @@ $id = $_GET['ID'];
             <th class=" border-bottom border-dark">TOTAL AMOUNT</th>
             <th class=" border-bottom border-dark">QUANTITY PER</th>
             <th class=" border-bottom border-dark">QUANTITY PER PHYSICAL</th>
-            <!-- <th class=" border-bottom border-dark">
-              SHORTAGE/OVERAGE
-              <table>
-                <tr class="">
-                  <td>Quantity</td>
-                  <td>Value</td>
-                </tr>
-              </table>
-                 <span>Quantity</span> -->
-            <!-- <span>Value</span> -->
-            <!-- </th> -->
+            <th class=" border-bottom border-dark">SHORTAGE QTY</th>
+            <th class=" border-bottom border-dark">SHORTAGE VALUE</th>
+            <th class=" border-bottom border-dark">OVERAGE QTY</th>
+            <th class=" border-bottom border-dark">OVERAGE VALUE</th>
             <th class="border-bottom border-dark">ASSET CATEGORY</th>
             <th class=" border-bottom border-dark">ROOM TYPE</th>
             <th class=" border-bottom border-dark">LOCATION</th>
@@ -226,7 +219,7 @@ $id = $_GET['ID'];
           if (empty($id)) {
             echo "No files to show";
           } else {
-            $sqldata = "SELECT access_id, article, u_measure, u_value, total_amount, qty_per, qty_per_phy, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date, remarks
+            $sqldata = "SELECT *
                   FROM `assets` ac
                       JOIN `asset_cat` i
                       ON ac.ac_id = i.ac_id
@@ -256,6 +249,10 @@ $id = $_GET['ID'];
                 <td><?php echo $item['total_amount']; ?></td>
                 <td><?php echo $item['qty_per']; ?></td>
                 <td><?php echo $item['qty_per_phy']; ?></td>
+                <td><?php echo $item['short_qty']; ?></td>
+                <td><?php echo $item['short_value']; ?></td>
+                <td><?php echo $item['over_qty']; ?></td>
+                <td><?php echo $item['over_value']; ?></td>
                 <td><?php echo $item['ac_name']; ?></td>
                 <td><?php echo $item['cat_name']; ?></td>
                 <td><?php echo $item['loc_name']; ?></td>

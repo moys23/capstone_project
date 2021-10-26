@@ -103,17 +103,10 @@ include_once '../includes/function.php';
             <th class=" border-bottom border-dark">TOTAL AMOUNT</th>
             <th class=" border-bottom border-dark">QUANTITY PER</th>
             <th class=" border-bottom border-dark">QUANTITY PER PHYSICAL</th>
-            <!-- <th class=" border-bottom border-dark">
-              SHORTAGE/OVERAGE
-              <table>
-                <tr class="">
-                  <td>Quantity</td>
-                  <td>Value</td>
-                </tr>
-              </table>
-                 <span>Quantity</span> -->
-            <!-- <span>Value</span> -->
-            <!-- </th> -->
+            <th class=" border-bottom border-dark">SHORTAGE QTY</th>
+            <th class=" border-bottom border-dark">SHORTAGE VALUE</th>
+            <th class=" border-bottom border-dark">OVERAGE QTY</th>
+            <th class=" border-bottom border-dark">OVERAGE VALUE</th>
             <th class="border-bottom border-dark">ASSET CATEGORY</th>
             <th class=" border-bottom border-dark">ROOM TYPE</th>
             <th class=" border-bottom border-dark">LOCATION</th>
@@ -163,6 +156,10 @@ include_once '../includes/function.php';
               <td class="size1 text-center"><?php echo $row['total_amount']; ?></td>
               <td class="size1 text-center"><?php echo $row['qty_per']; ?></td>
               <td class="size1 text-center"><?php echo $row['qty_per_phy']; ?></td>
+              <td class="size1 text-center"><?php echo $row['short_qty']; ?></td>
+              <td class="size1 text-center"><?php echo $row['short_value']; ?></td>
+              <td class="size1 text-center"><?php echo $row['over_qty']; ?></td>
+              <td class="size1 text-center"><?php echo $row['over_value']; ?></td>
               <td class="size1 text-center"><?php echo $row['ac_name']; ?></td>
               <td class="size1 text-center"><?php echo $row['cat_name']; ?></td>
               <td class="size1 text-center"><?php echo $row['loc_name']; ?></td>
@@ -340,6 +337,10 @@ include_once '../includes/function.php';
                 <td class="size1 text-center"><?php echo $row['total_amount']; ?></td>
                 <td class="size1 text-center"><?php echo $row['qty_per']; ?></td>
                 <td class="size1 text-center"><?php echo $row['qty_per_phy']; ?></td>
+                <td class="size1 text-center"><?php echo $row['short_qty']; ?></td>
+                <td class="size1 text-center"><?php echo $row['short_value']; ?></td>
+                <td class="size1 text-center"><?php echo $row['over_qty']; ?></td>
+                <td class="size1 text-center"><?php echo $row['over_value']; ?></td>
                 <td class="size1 text-center"><?php echo $row['ac_name']; ?></td>
                 <td class="size1 text-center"><?php echo $row['cat_name']; ?></td>
                 <td class="size1 text-center"><?php echo $row['loc_name']; ?></td>

@@ -137,7 +137,7 @@ include_once '../includes/function.php';
             </div>
           </div>
         </div>
-        <div class="col-sm-4" id="donutchart" style="margin: auto;"></div>
+        <!-- <div class="col-sm-4" id="donutchart" style="margin: auto;"></div> -->
       </div>
     </div>
   </div>
@@ -359,16 +359,11 @@ include_once '../includes/function.php';
             <th class=" border-bottom border-dark">TOTAL AMOUNT</th>
             <th class=" border-bottom border-dark">QUANTITY PER</th>
             <th class=" border-bottom border-dark">QUANTITY PER PHYSICAL</th>
-            <!-- <th class=" border-bottom border-dark">
-              SHORTAGE/OVERAGE
-              <table>
-                <tr class="">
-                  <span>Quantity</span>
-                 <span>Value</span>
-                </tr>
-              </table>
-            </th> -->
-            <th class="border-bottom border-dark">ASSET CATEGORY</th>
+            <th class=" border-bottom border-dark">SHORTAGE QTY</th>
+            <th class=" border-bottom border-dark">SHORTAGE VALUE</th>
+            <th class=" border-bottom border-dark">OVERAGE QTY</th>
+            <th class=" border-bottom border-dark">OVERAGE VALUE</th>
+            <th class=" border-bottom border-dark">ASSET CATEGORY</th>
             <th class=" border-bottom border-dark">ROOM TYPE</th>
             <th class=" border-bottom border-dark">LOCATION</th>
             <th class=" border-bottom border-dark">PERSONNEL IN CHARGE</th>

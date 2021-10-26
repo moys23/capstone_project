@@ -104,6 +104,22 @@
               <label for="item">Quantity Per Physical</label>
               <input type="text" class="form-control border border-dark" name="qtyPerPhysical" required>
             </div>
+            <div class="form-group mx-3 mb-1">
+              <label for="item">Shortage Quantity</label>
+              <input type="text" class="form-control border border-dark" name="shrtQTY" required>
+            </div>
+            <div class="form-group mx-3 mb-1">
+              <label for="item">Shortage Value</label>
+              <input type="text" class="form-control border border-dark" name="shrtVAL" required>
+            </div>
+            <div class="form-group mx-3 mb-1">
+              <label for="item">Overage Quantity</label>
+              <input type="text" class="form-control border border-dark" name="overQTY" required>
+            </div>
+            <div class="form-group mx-3 mb-1">
+              <label for="item">Overage Value</label>
+              <input type="text" class="form-control border border-dark" name="overVAL" required>
+            </div>
 
             <div class="form-group mx-3 mb-1">
               <label for="SelectCategory">Category</label>

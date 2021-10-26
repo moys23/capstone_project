@@ -133,17 +133,10 @@ include_once '../includes/URLhandler.php';
             <th class=" border-bottom border-dark">TOTAL AMOUNT</th>
             <th class=" border-bottom border-dark">QUANTITY PER</th>
             <th class=" border-bottom border-dark">QUANTITY PER PHYSICAL</th>
-            <!-- <th class=" border-bottom border-dark">
-              SHORTAGE/OVERAGE
-              <table>
-                <tr class="">
-                  <td>Quantity</td>
-                  <td>Value</td>
-                </tr>
-              </table>
-                 <span>Quantity</span> -->
-            <!-- <span>Value</span> -->
-            <!-- </th> -->
+            <th class=" border-bottom border-dark">SHORTAGE QTY</th>
+            <th class=" border-bottom border-dark">SHORTAGE VALUE</th>
+            <th class=" border-bottom border-dark">OVERAGE QTY</th>
+            <th class=" border-bottom border-dark">OVERAGE VALUE</th>
             <th class="border-bottom border-dark">ASSET CATEGORY</th>
             <th class=" border-bottom border-dark">ROOM TYPE</th>
             <th class=" border-bottom border-dark">LOCATION</th>
@@ -160,7 +153,53 @@ include_once '../includes/URLhandler.php';
 
             $print = $_POST['printOption'];
 
-            $sql = "SELECT  *
+
+            if ($print == 'Disposed') {
+              $sql = "SELECT  *
+                      FROM `assets` ac
+                        JOIN `asset_cat` i
+                        ON ac.ac_id = i.ac_id
+                        JOIN `category` ct
+                        ON ac.cat_id = ct.cat_id
+                        JOIN `department` dt
+                        ON ac.dept_id = dt.dept_id
+                        JOIN `location` lc
+                        ON ac.loc_id = lc.loc_id
+                          WHERE  ac.remarks = '$print'
+                            ORDER BY a_id DESC ;";
+              $result = mysqli_query($conn, $sql);
+
+              while ($row = mysqli_fetch_assoc($result)) {
+          ?>
+                <tr>
+                  <td><?php echo $row['access_id']; ?></td>
+                  <td><?php echo $row['article']; ?></td>
+                  <td><?php echo $row['a_name']; ?></td>
+                  <td><?php echo $row['a_effectivty_date']; ?></td>
+                  <td><?php echo $row['u_measure']; ?></td>
+                  <td><?php echo $row['u_value']; ?></td>
+                  <td><?php echo $row['total_amount']; ?></td>
+                  <td><?php echo $row['qty_per']; ?></td>
+                  <td><?php echo $row['qty_per_phy']; ?></td>
+                  <td><?php echo $row['short_qty']; ?></td>
+                  <td><?php echo $row['short_value']; ?></td>
+                  <td><?php echo $row['over_qty']; ?></td>
+                  <td><?php echo $row['over_value']; ?></td>
+                  <td><?php echo $row['ac_name']; ?></td>
+                  <td><?php echo $row['cat_name']; ?></td>
+                  <td><?php echo $row['loc_name']; ?></td>
+                  <td><?php echo $row['a_person_incharge']; ?></td>
+                  <td><?php echo $row['dept_name']; ?></td>
+                  <td><?php echo $row['remarks']; ?></td>
+                </tr>
+              <?php
+              }
+              ?>
+
+          <?php
+            }
+            elseif ($print !== 'Disposed' ) {
+              $sql = "SELECT  *
                       FROM `assets` ac
                         JOIN `asset_cat` i
                         ON ac.ac_id = i.ac_id
@@ -175,69 +214,39 @@ include_once '../includes/URLhandler.php';
                             OR ct.cat_name LIKE '$print'
                             OR dt.dept_name LIKE '$print'
                             OR lc.loc_name LIKE '$print'
-                            OR ac.remarks LIKE '$print'
+                            AND ac.remarks = 'Issued'
                             ORDER BY a_id DESC ;";
             $result = mysqli_query($conn, $sql);
-
-
+            
             while ($row = mysqli_fetch_assoc($result)) {
-          ?>
-              <tr>
-                <td><?php echo $row['access_id']; ?></td>
-                <td><?php echo $row['article']; ?></td>
-                <td><?php echo $row['a_name']; ?></td>
-                <td><?php echo $row['a_effectivty_date']; ?></td>
-                <td><?php echo $row['u_measure']; ?></td>
-                <td><?php echo $row['u_value']; ?></td>
-                <td><?php echo $row['total_amount']; ?></td>
-                <td><?php echo $row['qty_per']; ?></td>
-                <td><?php echo $row['qty_per_phy']; ?></td>
-                <td><?php echo $row['ac_name']; ?></td>
-                <td><?php echo $row['cat_name']; ?></td>
-                <td><?php echo $row['loc_name']; ?></td>
-                <td><?php echo $row['a_person_incharge']; ?></td>
-                <td><?php echo $row['dept_name']; ?></td>
-                <td><?php echo $row['remarks']; ?></td>
-              </tr>
+            
+              ?>
+                <tr>
+                  <td><?php echo $row['access_id']; ?></td>
+                  <td><?php echo $row['article']; ?></td>
+                  <td><?php echo $row['a_name']; ?></td>
+                  <td><?php echo $row['a_effectivty_date']; ?></td>
+                  <td><?php echo $row['u_measure']; ?></td>
+                  <td><?php echo $row['u_value']; ?></td>
+                  <td><?php echo $row['total_amount']; ?></td>
+                  <td><?php echo $row['qty_per']; ?></td>
+                  <td><?php echo $row['qty_per_phy']; ?></td>
+                  <td><?php echo $row['short_qty']; ?></td>
+                  <td><?php echo $row['short_value']; ?></td>
+                  <td><?php echo $row['over_qty']; ?></td>
+                  <td><?php echo $row['over_value']; ?></td>
+                  <td><?php echo $row['ac_name']; ?></td>
+                  <td><?php echo $row['cat_name']; ?></td>
+                  <td><?php echo $row['loc_name']; ?></td>
+                  <td><?php echo $row['a_person_incharge']; ?></td>
+                  <td><?php echo $row['dept_name']; ?></td>
+                  <td><?php echo $row['remarks']; ?></td>
+                </tr>
               <?php
+            
             }
 
-          //   if ($print = "Disposed") {
-          //     $data = "SELECT *
-          //               FROM `assets` ac
-          //                 JOIN `asset_cat` i
-          //                 ON ac.ac_id = i.ac_id
-          //                 JOIN `category` ct
-          //                 ON ac.cat_id = ct.cat_id
-          //                 JOIN `department` dt
-          //                 ON ac.dept_id = dt.dept_id
-          //                 JOIN `location` lc
-          //                 ON ac.loc_id = lc.loc_id 
-          //                   WHERE remarks = 'Disposed';";
-          //     $go = mysqli_query($conn, $data);
-
-          //     while ($fetch = mysqli_fetch_assoc($go)) {
-          //     ?>
-                 <!-- <tr>
-          //         <td><?php //echo $fetch['access_id']; ?></td>
-          //         <td><?php //echo $fetch['article']; ?></td>
-          //         <td><?php //echo $fetch['a_name']; ?></td>
-          //         <td><?php //echo $fetch['a_effectivty_date']; ?></td>
-          //         <td><?php //echo $fetch['u_measure']; ?></td>
-          //         <td><?php //echo $fetch['u_value']; ?></td>
-          //         <td><?php //echo $fetch['total_amount']; ?></td>
-          //         <td><?php //echo $fetch['qty_per']; ?></td>
-          //         <td><?php //echo $fetch['qty_per_phy']; ?></td>
-          //         <td><?php //echo $fetch['ac_name']; ?></td>
-          //         <td><?php //echo $fetch['cat_name']; ?></td>
-          //         <td><?php //echo $fetch['loc_name']; ?></td>
-          //         <td><?php //echo $fetch['a_person_incharge']; ?></td>
-          //         <td><?php //echo $fetch['dept_name']; ?></td>
-          //         <td><?php //echo $fetch['remarks']; ?></td>
-          //       </tr> -->
-          <?php
-          //     }
-          //   }
+            }
           } else {
             echo dataTable($conn, $_SESSION['user_uid']);
           }
