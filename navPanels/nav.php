@@ -109,7 +109,13 @@
         </li>
 
 
-        <li class="nav-item dropdown mx-2">
+        <?php
+
+        if ($_SESSION['user_usertype'] == 'A') {
+          // header("location: ../AdminPage/index.php?overview");
+          echo '
+          
+          <li class="nav-item dropdown mx-2">
           <button class="nav-link bg-transparent border-0 text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi-plus-circle"></i> New Details</button>
 
           <div class="dropdown-menu py-0" aria-labelledby="addItemDPmenu">
@@ -137,7 +143,7 @@
                       <button class="btn btn-primary text-end" name="create1">Save</button>
                     </div>
                   </form>
-                  <?php echo createDept($conn, $_SESSION['user_uid']) ?>
+                  '. createDept($conn, $_SESSION['user_uid']) . '
                 </div>
               </div>
             </div>
@@ -164,7 +170,7 @@
                       <button class="btn btn-primary text-end" name="create2">Save</button>
                     </div>
                   </form>
-                  <?php echo createCategory($conn, $_SESSION['user_uid']) ?>
+                  '. createCategory($conn, $_SESSION['user_uid']) .'
                 </div>
               </div>
             </div>
@@ -191,7 +197,7 @@
                       <button class="btn btn-primary text-end" name="create3">Save</button>
                     </div>
                   </form>
-                  <?php echo createRoom($conn, $_SESSION['user_uid']) ?>
+                  '. createRoom($conn, $_SESSION['user_uid']) .'
                 </div>
               </div>
             </div>
@@ -199,6 +205,18 @@
           </div>
 
         </li>
+          
+          ';
+        } elseif ($_SESSION['user_usertype'] == 'B') {
+          // header("location: ../UsersPage/index.php?overview");
+          echo "";
+        }
+
+        ?>
+
+
+
+        
 
         <li class="nav-item dropdown mx-2">
           <a href="../DataTables/data_archive.php" class="nav-link text-light"><i class="bi-folder2-open"></i> Archive</a>
