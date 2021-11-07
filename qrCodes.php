@@ -52,7 +52,7 @@
                   // echo $parseID;
                   $id = $_GET['ID'];
 
-                  $sql = "SELECT access_id, a_name, i.ac_name, ct.cat_name, dt.dept_name, lc.loc_name, a_person_incharge, a_effectivty_date
+                  $sql = "SELECT *
                           	FROM `assets` ac
                               	JOIN `asset_cat` i
                                 ON ac.ac_id = i.ac_id
@@ -73,7 +73,7 @@
                       <table>
                         <tr>
                           <td><h6>Asset's Name: </h6></td>
-                          <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['a_name'] ;?></h6></td>
+                          <td><h6 class="text-danger border-dark border-bottom"><?php echo $row['article'] ;?></h6></td>
                         </tr>
                         <tr>
                           <td><h6>Asset's Category: </h6></td>
